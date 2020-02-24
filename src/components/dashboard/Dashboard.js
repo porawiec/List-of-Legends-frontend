@@ -44,10 +44,11 @@ class Dashboard extends Component {
                         {/* <FriendsList /> */}
                     </div>
                 </div>
-            <div className="ui divided twelve wide two column grid">
+            <div className="ui divided two column grid">
                 <div className="row">
 
                     <div className="ui two column grid">
+                        
                         <div className="column">
                             <div class="ui segment">
                                 Personal Wishlist
@@ -61,6 +62,7 @@ class Dashboard extends Component {
                                 <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
                             </div>
                         </div>
+
                     </div>
 
                     <div className="four wide column">
@@ -71,10 +73,7 @@ class Dashboard extends Component {
                     </div>
 
                 </div>
-            </div>
 
-
-            <div className="ui divided one  column grid">
                 <div className="stretched row">
                     <div className="twelve wide column">
                         <div class="ui segment">
@@ -83,8 +82,8 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
             
         </div>
         )
@@ -101,8 +100,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (state) => {
-    console.log('dash map state to props', state)
+const mapDispatchToProps = (dispatch) => {
+    console.log('dash map state to props', dispatch)
     return {
 
     }
