@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { signUp } from '../../store/actions/authActions'
+import { signUp } from '../../store/actions/authActions'
 
 class SignUp extends Component {
     state = {
@@ -18,8 +18,32 @@ class SignUp extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         console.log(this.state)
-        this.props.signUp(this.state)
-    }
+
+        const reqObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        }
+    
+        fetch('http://localhost:3000/auth', reqObj)
+            .then(res => res.json())
+            .then(cred => {
+                if(cred.error) {
+                    throw(cred.error)
+                }
+            if (!cred.error) {
+                this.props.signUp(cred)
+                this.props.history.push('/')
+            } else {
+                alert(cred.error)
+                this.props.history.push('/signup')
+            }
+            }
+            )
+        }
 
 
     render() {
@@ -47,7 +71,7 @@ class SignUp extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // signUp: (creds) => dispatch(signUp(creds))
+        signUp: (creds) => dispatch(signUp(creds))
     }
 }
 

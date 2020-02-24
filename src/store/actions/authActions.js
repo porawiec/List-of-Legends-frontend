@@ -10,3 +10,10 @@ export const signOut = () => {
         type: 'SIGNOUT_SUCCESS'
     }
 }
+
+export const signUp = (credentials) => {
+    return {
+        type: 'SIGN_UP_SUCCESS',
+        credentials
+    }
+ }

@@ -1,19 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOut } from '../../store/actions/authActions'
 
 const SignedInLinks = (props) => {
 
     return(
-        <ul className='right'>
+        <div>
             {/* will fix navlink routing later */}
-            <li><NavLink to='/create'>Create New Note</NavLink></li>
-            <li><a onClick={props.signOut}>Log Out</a></li>
-
-            {/* user icon logged in initials*/}
-            <li><NavLink to='/' className='btn btn-floating cyan lighten-1'>PO</NavLink></li>
-        </ul>
+            {/* <li><NavLink to='/create'>Create New Wish</NavLink></li> */}
+            <a onClick={props.signOut}>Log Out</a>
+        </div>
     )
 }
 

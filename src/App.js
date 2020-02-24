@@ -18,7 +18,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Dashboard} />
             {/* <Route path='/champ/:id' component={ChampDetails} /> */}
-            <Route path='/signin' component={SignIn} />
+            <Route path='/login' component={SignIn} />
             <Route path='/signup' component={SignUp} />
             {/* <Route path='/user/:id' component={Friend} /> */}
           </Switch>
