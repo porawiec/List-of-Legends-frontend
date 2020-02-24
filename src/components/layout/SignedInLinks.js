@@ -9,7 +9,7 @@ const SignedInLinks = (props) => {
         <div>
             {/* will fix navlink routing later */}
             {/* <li><NavLink to='/create'>Create New Wish</NavLink></li> */}
-            <a onClick={props.signOut}>Log Out</a>
+            <a href onClick={props.signOut}>Log Out</a>
         </div>
     )
 }

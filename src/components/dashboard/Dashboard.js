@@ -16,7 +16,7 @@ class Dashboard extends Component {
             if(res.error) {
                 throw(res.error)
             }
-            // dispatch({ type: 'GET_CHAMPS', notes: res})
+            // dispatch({ type: 'GET_CHAMPS', champs: res})
             return res
         })
         .catch((err) => {
@@ -35,7 +35,7 @@ class Dashboard extends Component {
                         {/* <Wishlist champs={champs} /> */}
                     </div>
                     <div>
-                        {/* <ChampSelect champs={champs} /> */}
+                        {/* <ChampSelect /> */}
                     </div>
                     <div>
                         {/* <Notifications /> */}
@@ -44,56 +44,42 @@ class Dashboard extends Component {
                         {/* <FriendsList /> */}
                     </div>
                 </div>
-            <div className="ui divided two column grid">
-                <div className="stretched row">
-                    <div className="eight wide column">
-                        <div class="ui segment">
-                            Personal Wishlist
-                            <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
+            <div className="ui divided twelve wide two column grid">
+                <div className="row">
+
+                    <div className="ui two column grid">
+                        <div className="column">
+                            <div class="ui segment">
+                                Personal Wishlist
+                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
+                            </div>
+                        </div>
+
+                        <div className="column">
+                            <div className="ui segment">
+                                Friend Notifications
+                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
+                            </div>
                         </div>
                     </div>
+
                     <div className="four wide column">
                         <div className="ui segment">
-                            Friend Notifications
+                            Friends List
                             <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
                         </div>
                     </div>
+
                 </div>
             </div>
-            <div className="ui right one column grid">
-                <div className="four wide column">
-                    <div className="ui segment">
-                        Friends List
-                        <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
-                    </div>
-                </div>
-            </div>
+
+
             <div className="ui divided one  column grid">
                 <div className="stretched row">
                     <div className="twelve wide column">
                         <div class="ui segment">
                             Roster of Champions
-                            <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
-                            <div class="ui grid">
-                                <div class="column">
-                                    <img src="https://react.semantic-ui.com/images/wireframe/image.png" class="ui image" />
-                                </div>
-                                <div class="column">
-                                    <img src="https://react.semantic-ui.com/images/wireframe/image.png" class="ui image" />
-                                </div>
-                                <div class="column">
-                                    <img src="https://react.semantic-ui.com/images/wireframe/image.png" class="ui image" />
-                                </div>
-                                <div class="column">
-                                    <img src="https://react.semantic-ui.com/images/wireframe/image.png" class="ui image" />
-                                </div>
-                                <div class="column">
-                                    <img src="https://react.semantic-ui.com/images/wireframe/image.png" class="ui image" />
-                                </div>
-                                <div class="column">
-                                    <img src="https://react.semantic-ui.com/images/wireframe/image.png" class="ui image" />
-                                </div>
-                                </div>
+                            <ChampSelect />
                         </div>
                     </div>
                 </div>
