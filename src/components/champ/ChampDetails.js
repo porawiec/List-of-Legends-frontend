@@ -2,19 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class ChampDetails extends Component {
-
-
-    renderInfo = () => {
-        const {skin} = this.props
-
-        return (<div>
-                <p>{skin.name}</p>
-                <img src={skin.splash_img} class="ui image" />
-            </div>
-        )
-    }
     
     toggleWishStatus = () => {
+        console.log("hello")
         this.setState( prevState => {
             return {
                 wish: !prevState.wish

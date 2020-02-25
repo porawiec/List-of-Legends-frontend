@@ -83,32 +83,33 @@ const initState = {
 }
 
 const wishReducer = (state = initState, action) => {
+    let idx
     switch (action.type) {
         case 'GET_CHAMPS':
-            console.log('received notes', action.notes)
+            console.log('received champs', action.champs)
             return {
                 ...state,
-                notes: action.notes
+                champs: action.champs
             }
 
         case 'GET_CHAMPS_ERROR':
-            console.log('received notes error', action.err)
+            console.log('received champs error', action.err)
             return state
 
         case 'GET_CHAMP_SKINS':
-            console.log('received notes', action.notes)
+            console.log('received skins', action.skins)
             return {
                 ...state,
-                notes: action.notes
+                skins: action.skins
             }
 
         case 'GET_CHAMP_SKINS_ERROR':
-            console.log('received notes error', action.err)
+            console.log('received skins error', action.err)
             return state
 
 
         case 'CREATE_WISH':
-            console.log('created note', action.note)
+            console.log('added wish', action.wish)
             return ([
                 ...state,
                 {
@@ -124,9 +125,22 @@ const wishReducer = (state = initState, action) => {
             console.log('create wish error', action.err)
             return state
 
+        case "REMOVE_WISH":
+            idx = state.wishes.findIndex(wish => wish.id === action.id);
+            return {
+                ...state,
+                wishes: [...state.wishes.slice(0, idx), ...state.wishes.slice(idx + 1)]
+            }
+
+        case 'REMOVE_WISH_ERROR':
+            console.log('remove wish error', action.err)
+            return state
+
         default:
             return state
     }
 }
+
+
 
 export default wishReducer
