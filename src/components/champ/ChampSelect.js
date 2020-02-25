@@ -9,6 +9,7 @@ class ChampSelect extends Component {
     }
     
     render(){
+        console.log('asdfasdfasdfasdf')
         const { champs } = this.props
         return(
         <div class="ui grid">
@@ -28,9 +29,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.log('dash map state to props', dispatch)
+    console.log('dash map dispatch to props', dispatch)
     return {
-
+        getChamps: () => (dispatch({type: 'GET_CHAMPS'}))
     }
 }
 

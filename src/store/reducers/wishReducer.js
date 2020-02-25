@@ -95,6 +95,17 @@ const wishReducer = (state = initState, action) => {
             console.log('received notes error', action.err)
             return state
 
+        case 'GET_CHAMP_SKINS':
+            console.log('received notes', action.notes)
+            return {
+                ...state,
+                notes: action.notes
+            }
+
+        case 'GET_CHAMP_SKINS_ERROR':
+            console.log('received notes error', action.err)
+            return state
+
 
         case 'CREATE_WISH':
             console.log('created note', action.note)

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import getChamps from '../../store/actions/wishActions'
 import ChampSelect from '../champ/ChampSelect'
-import { Grid, Segment } from 'semantic-ui-react'
+import Wishlist from '../champ/Wishlist'
 
 class Dashboard extends Component {
 
@@ -29,22 +29,8 @@ class Dashboard extends Component {
         const { champs } = this.props
 
         return(
-            <div>
-                <div>
-                    <div>
-                        {/* <Wishlist champs={champs} /> */}
-                    </div>
-                    <div>
-                        {/* <ChampSelect /> */}
-                    </div>
-                    <div>
-                        {/* <Notifications /> */}
-                    </div>
-                    <div>
-                        {/* <FriendsList /> */}
-                    </div>
-                </div>
-            <div className="ui divided two column grid">
+        <div>
+            <div className="ui divided two column">
                 <div className="row">
 
                     <div className="ui two column grid">
@@ -52,11 +38,11 @@ class Dashboard extends Component {
                         <div className="column">
                             <div class="ui segment">
                                 Personal Wishlist
-                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
+                                <Wishlist />
                             </div>
                         </div>
 
-                        <div className="column">
+                        <div className="four wide column">
                             <div className="ui segment">
                                 Friend Notifications
                                 <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
@@ -74,6 +60,7 @@ class Dashboard extends Component {
 
                 </div>
 
+            </div>
                 <div className="stretched row">
                     <div className="twelve wide column">
                         <div class="ui segment">
@@ -82,8 +69,6 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-
-            </div>
             
         </div>
         )
