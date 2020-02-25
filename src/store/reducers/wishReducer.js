@@ -1,26 +1,26 @@
 const initState = {
     champs: [
-        {
-            id: 1,
-            name: 'Aatrox',
-            icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Aatrox.png'
-        },
-        {
-            id: 2,
-            name: 'Ahri',
-            icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Ahri.png'
+        // {
+        //     id: 1,
+        //     name: 'Aatrox',
+        //     icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Aatrox.png'
+        // },
+        // {
+        //     id: 2,
+        //     name: 'Ahri',
+        //     icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Ahri.png'
 
-        },
-        {
-            id: 3,
-            name: 'Akali',
-            icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Akali.png'
-        },
-        {
-            id: 4,
-            name: 'Draven',
-            icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Draven.png'
-        }
+        // },
+        // {
+        //     id: 3,
+        //     name: 'Akali',
+        //     icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Akali.png'
+        // },
+        // {
+        //     id: 4,
+        //     name: 'Draven',
+        //     icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Draven.png'
+        // }
     ],
     skins: [{
         id: 1,

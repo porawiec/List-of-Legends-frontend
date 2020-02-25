@@ -10,15 +10,15 @@ const Navbar = () => {
     
         return(
             <nav>
-                <div class="ui inverted menu">
+                <div className="ui inverted menu">
                 <Link to='/'>
-                    <div class="item"><img src='https://b.thumbs.redditmedia.com/MDQjKWvNW82SfYXHbA9eFY1O-AFyT-4tpqWOWl3Xo-s.png' />
+                    <div className="item"><img src='https://b.thumbs.redditmedia.com/MDQjKWvNW82SfYXHbA9eFY1O-AFyT-4tpqWOWl3Xo-s.png' />
                         List of Legends
                     </div>
                 </Link>
-                    <div class="right menu">
-                        <a href class="item"><SignedOutLinks /></a>  
-                        <a href class="item"><SignedInLinks /></a>
+                    <div className="right menu">
+                        <a href className="item"><SignedOutLinks /></a>  
+                        <a href className="item"><SignedInLinks /></a>
                     </div>
                 </div>
             </nav>

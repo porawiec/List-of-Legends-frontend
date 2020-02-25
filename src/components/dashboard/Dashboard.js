@@ -7,26 +7,23 @@ import Wishlist from '../champ/Wishlist'
 
 class Dashboard extends Component {
 
-    componentDidMount() {
-        const {champs} = this.props
-
-        fetch('http://localhost:3000/champs')
-        .then(res => res.json())
-        .then(res => {
-            if(res.error) {
-                throw(res.error)
-            }
-            // dispatch({ type: 'GET_CHAMPS', champs: res})
-            return res
+//////////
+    updatedChamps = (champs) => {
+        const updateChamps =  champs.map(champObj => {
+          return {
+            ...champObj,
+            wished: false
+          }
         })
-        .catch((err) => {
-            // dispatch({ type: 'GET_CHAMPS_ERROR', err})
+    
+        this.setState({
+          champs: updateChamps
         })
-    }
+      }
+//////////////
 
     render(){
         console.log('dash props',this.props)
-        const { champs } = this.props
 
         return(
         <div>
@@ -36,7 +33,7 @@ class Dashboard extends Component {
                     <div className="ui two column grid">
                         
                         <div className="column">
-                            <div class="ui segment">
+                            <div className="ui segment">
                                 Personal Wishlist
                                 <Wishlist />
                             </div>
@@ -45,7 +42,7 @@ class Dashboard extends Component {
                         <div className="four wide column">
                             <div className="ui segment">
                                 Friend Notifications
-                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
+                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" className="ui image" />
                             </div>
                         </div>
 
@@ -54,7 +51,7 @@ class Dashboard extends Component {
                     <div className="four wide column">
                         <div className="ui segment">
                             Friends List
-                            <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" class="ui image" />
+                            <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" className="ui image" />
                         </div>
                     </div>
 
@@ -63,7 +60,7 @@ class Dashboard extends Component {
             </div>
                 <div className="stretched row">
                     <div className="twelve wide column">
-                        <div class="ui segment">
+                        <div className="ui segment">
                             Roster of Champions
                             <ChampSelect />
                         </div>
@@ -75,21 +72,4 @@ class Dashboard extends Component {
     }
 }
 
-
-
-const mapStateToProps = (state) => {
-    console.log('dash map state to props', state)
-    return {
-        champs: state.wish.champs,
-        wishes: state.wish.wishes
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    console.log('dash map state to props', dispatch)
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default Dashboard

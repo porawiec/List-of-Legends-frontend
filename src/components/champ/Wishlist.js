@@ -9,15 +9,14 @@ class Wishlist extends Component {
         const { wishes } = this.props
         
     return (
-    <div class="ui three column grid">
+    <div class="ui six cards">
         {wishes.map(wish => (
-            <div class= "ui column">
-                <div class="row">
-                    <h4>{wish.name === 'default' ? "Champion" : wish.name}</h4>
-                </div>
-                <div class ="row">
-                    <img src={wish.loading_img} class="ui small image" />
-                </div>
+            <div className="ui raised card">
+              
+                    <h4 className="ui center aligned">{wish.name === 'default' ? "Champion" : wish.name}</h4>
+                
+                    <img onClick={() => this.clickedChamp(wish)} src={wish.loading_img} className="ui small image" />
+               
             </div>
         ))}
     </div>

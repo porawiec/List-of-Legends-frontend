@@ -1,67 +1,64 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ChampDetails from './ChampDetails'
+import { withRouter } from 'react-router-dom'
+import { getChampsAction } from '../../store/actions/wishActions'
+import { getChampsFailAction } from '../../store/actions/wishActions'
 
 class ChampSelect extends Component {
 
-    componentDidMount(){
-
+    componentDidMount() {
+        fetch('http://localhost:3000/champs')
+        .then(res => res.json())
+        .then(res => {
+            if(res.error) {
+                throw(res.error)
+            }
+            console.log(res)
+            this.props.getChampsSuccess(res)
+        })
+        .catch((err) => {
+            this.props.getChampsFailure(err)
+        })
     }
+
+    clickedChamp = (target) => {
+        console.log('handle click champ', target)
+        console.log('handle click champ id', target.id)
+        this.props.history.push(`/champ/${target.id}`)
+    }
+
     
     render(){
-        console.log('asdfasdfasdfasdf')
+        console.log('champ select props', this.props)
         const { champs } = this.props
         return(
-        <div class="ui grid">
+        <div className="ui grid">
             {champs.map(champ => (
-                <div class="column">
-                    <img onClick={console.log('nothing')} src={champ.icon_img} class="ui image" />
+                <div className="column">
+                    <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} className="ui image" />
                 </div>
             ))}
         </div>
         )}
     }
 
-const mapStateToProps = (state) => {
-    return {
-        champs: state.wish.champs
+    const mapStateToProps = (state) => {
+        console.log('dash map state to props', state)
+        return {
+            champs: state.wish.champs
+        }
     }
-}
 
-const mapDispatchToProps = (dispatch) => {
-    console.log('dash map dispatch to props', dispatch)
-    return {
-        getChamps: () => (dispatch({type: 'GET_CHAMPS'}))
+    const mapDispatchToProps = (dispatch) => {
+        console.log('dash map state to props', dispatch)
+        return {
+            getChampsSuccess: (champs) => {
+                dispatch(getChampsAction(champs))
+            },
+            getChampsFailure: (error) => {
+                dispatch(getChampsFailAction(error))
+            }
+        }
     }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChampSelect)
-
-
-
-
-
-
-// const [champs, setChamps] = useState([
-                //     {
-                //         id: 1,
-                //         name: 'Aatrox',
-                //         icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Aatrox.png'
-                //     },
-                //     {
-                //         id: 2,
-                //         name: 'Ahri',
-                //         icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Ahri.png'
-            
-                //     },
-                //     {
-                //         id: 3,
-                //         name: 'Akali',
-                //         icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Akali.png'
-                //     },
-                //     {
-                //         id: 4,
-                //         name: 'Draven',
-                //         icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Draven.png'
-                //     }
-                // ])
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ChampSelect))
