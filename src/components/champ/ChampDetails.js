@@ -32,9 +32,9 @@ class ChampDetails extends Component {
         })
     }
     render(){
-        const { champs, skins } = this.props
+        const { champs } = this.props
         const id = this.props.match.params.id
-        // if (id === champs){
+
         console.log('params', this.props.match.params)
         console.log('champ props', champs)
         const selectedChamp = champs.find(champ => champ.id === parseInt(id));

@@ -35,7 +35,7 @@ class ChampSelect extends Component {
         <div className="ui grid">
             {champs.map(champ => (
                 <div className="column">
-                    <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} className="ui image" />
+                    <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} className="ui card" />
                 </div>
             ))}
         </div>

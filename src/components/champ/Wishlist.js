@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class Wishlist extends Component {
 
+    clickedChamp = (target) => {
+        console.log('handle click champ', target)
+        console.log('handle click champ id', target.champ_id)
+        this.props.history.push(`/champ/${target.champ_id}`)
+    }
     
     render(){
         console.log('asdfasdfasfd')
@@ -42,4 +48,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Wishlist)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Wishlist))
