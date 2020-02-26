@@ -17,3 +17,10 @@ export const signUp = (credentials) => {
         credentials
     }
  }
+
+ export const getProfileAction = (credentials) => {
+    return {
+        type: 'GET_PROFILE',
+        credentials
+    }
+ }

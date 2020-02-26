@@ -1,10 +1,17 @@
 import React from 'react'
-import SignedInLinks from './SignedInLinks'
-import SignedOutLinks from './SignedOutLinks'
+import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { signOut } from '../../store/actions/authActions'
+
 
 // background image
 // http://img2.wikia.nocookie.net/__cb20140803182651/leagueoflegends/images/4/48/Shadow_Isles_concept_4.jpg
+
+const handleClick = () => {
+    localStorage.removeItem('token')
+    this.props.signOut()
+}
 
 const Navbar = () => {
     
@@ -17,12 +24,25 @@ const Navbar = () => {
                     </div>
                 </Link>
                     <div className="right menu">
-                        <a href className="item"><SignedOutLinks /></a>  
-                        <a href className="item"><SignedInLinks /></a>
+                        <NavLink to='/login' className='item'>Sign In</NavLink>
+                        <NavLink to='/signup' className='item'>Create New Account</NavLink>
+                        {/* {this.props.currentUser.username ?  */}
+                        <Link to='/login' className='item' onClick={handleClick}>Log Out</Link> 
+                        {/* : null } */}
                     </div>
                 </div>
             </nav>
     )
 }
 
-export default Navbar
+const mapStateToProps = state => ({
+    currentUser: state.auth.currentUser
+})
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

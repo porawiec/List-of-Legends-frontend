@@ -1,5 +1,6 @@
 const initState = {
-    authError: null
+    authError: null,
+    currentUser: {}
 }
 
 const authReducer = (state = initState, action) => {
@@ -13,12 +14,17 @@ const authReducer = (state = initState, action) => {
         case 'LOGIN_SUCCESS':
             console.log('login success')
             return {
-                user: action.credentials,
+                ...state,
+                currentUser: action.credentials,
                 authError: null
             }
         case 'SIGNOUT_SUCCESS':
             console.log('signout success')
-            return null
+            return {
+                ...state,
+                currentUser: {},
+                authError: null
+            }
         case 'SIGN_UP_ERROR':
             console.log('sign up error')
             return {
@@ -30,7 +36,14 @@ const authReducer = (state = initState, action) => {
             return {
                 ...state,
                 authError: null,
-                user: action.user
+                currentUser: action.user
+            }
+        case 'GET_PROFILE':
+            console.log('fetch with authorization header and token')
+            return {
+                ...state,
+                authError: null,
+                currentUser: action.user
             }
 
         default:

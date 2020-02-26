@@ -107,6 +107,17 @@ const wishReducer = (state = initState, action) => {
             console.log('received skins error', action.err)
             return state
 
+        case 'GET_USERS':
+            console.log('received users', action.champs)
+            return {
+                ...state,
+                champs: action.champs
+            }
+
+        case 'GET_USERS_ERROR':
+            console.log('received users error', action.err)
+            return state
+
 
         case 'CREATE_WISH':
             console.log('added wish', action.wish)

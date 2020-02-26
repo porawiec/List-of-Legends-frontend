@@ -1,26 +1,9 @@
 import React, { Component } from 'react'
 // import Notifications from './Notifications'
-import { connect } from 'react-redux'
-import getChamps from '../../store/actions/wishActions'
 import ChampSelect from '../champ/ChampSelect'
 import Wishlist from '../champ/Wishlist'
 
 class Dashboard extends Component {
-
-//////////
-    updatedChamps = (champs) => {
-        const updateChamps =  champs.map(champObj => {
-          return {
-            ...champObj,
-            wished: false
-          }
-        })
-    
-        this.setState({
-          champs: updateChamps
-        })
-      }
-//////////////
 
     render(){
         console.log('dash props',this.props)

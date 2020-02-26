@@ -17,7 +17,8 @@ class SignUp extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state)
+        console.log('state',this.state)
+        console.log('props',this.props)
 
         const reqObj = {
             method: 'POST',
@@ -25,10 +26,10 @@ class SignUp extends Component {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(this.state)
+            body: JSON.stringify({user: this.state})
         }
     
-        fetch('http://localhost:3000/auth', reqObj)
+        fetch('http://localhost:3000/users', reqObj)
             .then(res => res.json())
             .then(cred => {
                 if(cred.error) {
@@ -36,7 +37,7 @@ class SignUp extends Component {
                 }
             if (!cred.error) {
                 this.props.signUp(cred)
-                this.props.history.push('/')
+                this.props.history.push('/login')
             } else {
                 alert(cred.error)
                 this.props.history.push('/signup')
@@ -48,22 +49,30 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div className='container'>
-                <form onSubmit={this.handleSubmit} className='white'>
-                    <h5 className='grey-text text-darken-3'>Create New Account</h5>
-                    <div className='input-field'>
-                        <label htmlFor='username'>Username</label>
-                        <input type='text' id='username' onChange={this.handleChange}></input>
-                    </div>
-                    <h5 className='grey-text text-darken-3'>Password</h5>
-                    <div className='input-field'>
-                        <label htmlFor='password'>Password</label>
-                        <input type='password' id='password' onChange={this.handleChange}></input>
-                    </div>
-                    <div className='input-field'>
-                        <button className='btn cyan lighten-1'>Sign Up</button>
-                    </div>
-                </form>
+            <div className="ui middle aligned center aligned grid">
+                <div className="column">
+                    <form onSubmit={this.handleSubmit} className='ui large form'>
+                    <div class="ui stacked segment">
+                        <h2 className="ui teal image header">
+                                <div className="content">
+                                    Create new account
+                                </div>
+                            </h2>
+                            <div className='input-field'>
+                                <label htmlFor='username'></label>
+                                <input type='text' id='username' placeholder='Username' onChange={this.handleChange}></input>
+                            </div>
+                            <h5 className=''>Password</h5>
+                            <div className='input-field'>
+                                <label htmlFor='password'></label>
+                                <input type='password' id='password' placeholder='Password' onChange={this.handleChange}></input>
+                            </div>
+                            <div className='input-field'>
+                                <button className='ui large teal submit button'>Sign Up</button>
+                            </div>
+                            </div>
+                    </form>
+                </div>
             </div>
         )
     }

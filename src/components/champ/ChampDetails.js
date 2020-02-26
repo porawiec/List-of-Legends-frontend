@@ -61,14 +61,14 @@ class ChampDetails extends Component {
 // }
 
 const mapStateToProps = (state) => {
-    console.log('dash map state to props', state)
+    console.log('show page map state to props', state)
     return {
         champs: state.wish.champs
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.log('dash map state to props', dispatch)
+    console.log('show page map dispatch to props', dispatch)
     return {
         getChampsSuccess: (champs) => {
             dispatch(getChampsAction(champs))
