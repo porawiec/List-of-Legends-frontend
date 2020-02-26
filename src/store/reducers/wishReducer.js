@@ -78,6 +78,13 @@ const initState = {
             splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_3.jpg',
             loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zyra_3.jpg',
             champ_id: 148
+        },
+        {
+            id: 2,
+            name: 'Justicar Aatrox',
+            splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_1.jpg',
+            loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_1.jpg',
+            champ_id: 1
         }
     ]
 }

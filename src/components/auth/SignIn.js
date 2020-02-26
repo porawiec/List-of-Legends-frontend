@@ -9,7 +9,7 @@ class SignIn extends Component {
     }
 
     handleChange = (e) => {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         this.setState({
             [e.target.id]: e.target.value
         })
@@ -17,7 +17,7 @@ class SignIn extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state)
+        // console.log(this.state)
 
         const reqObj = {
             method: 'POST',
@@ -31,6 +31,8 @@ class SignIn extends Component {
         fetch('http://localhost:3000/login', reqObj)
             .then(res => res.json())
             .then(cred => {
+                // console.log('fetch', cred)
+                debugger
                 if(cred.error) {
                     throw(cred.error)
                 }

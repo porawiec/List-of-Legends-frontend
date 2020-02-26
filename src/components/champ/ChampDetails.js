@@ -9,7 +9,14 @@ import { getChampsFailAction } from '../../store/actions/wishActions'
 class ChampDetails extends Component {
 
     componentDidMount() {
-        fetch(`http://localhost:3000/champs`)
+        const reqObj = {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+            }
+       
+        fetch(`http://localhost:3000/champs`, reqObj)
         .then(res => res.json())
         .then(res => {
             if(res.error) {
@@ -42,16 +49,21 @@ class ChampDetails extends Component {
 
         
     return (
-    <div class="ui three column grid">
+    <div className="ui three column grid">
         {!selectedChamp ? null : selectedChamp.skins.map(champ => (
-            <div class= "ui column">
-                <div class="row">
-                    <h2>{champ.name === 'default' ? "Champion" : champ.name}</h2>
-                </div>
-                <div class ="row">
-                    <img src={champ.splash_img} class="ui huge image" />
-                    {/* <button class="ui button fluid" onClick={this.toggleWishStatus}>{this.state.wish ? 'Remove from Wishlist' : 'Add to Wishlist!'}</button> */}
-                    <button onClick={this.toggleWishStatus}>Add to Wishlist</button>
+            <div className= "ui column">
+                <div className="ui centered card">
+                    <div className="row">
+                        <h2 className="ui center aligned">{champ.name === 'default' ? "Champion" : champ.name}</h2>
+                    </div>
+                    <div className ="row">
+                        <img src={champ.splash_img} className="ui huge image" />
+                        {/* <button class="ui button fluid" onClick={this.toggleWishStatus}>{this.state.wish ? 'Remove from Wishlist' : 'Add to Wishlist!'}</button> */}
+                        <button className="ui button fluid teal" onClick={this.toggleWishStatus}>
+                            <i className="add icon"></i>
+                            Add to Wishlist
+                        </button>
+                    </div>
                 </div>
             </div>
         ))}

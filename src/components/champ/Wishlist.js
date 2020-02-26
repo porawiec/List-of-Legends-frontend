@@ -8,7 +8,13 @@ import { getWishesFailAction } from '../../store/actions/wishActions'
 class Wishlist extends Component {
 
     componentDidMount() {
-        fetch('http://localhost:3000/champs')
+        const reqObj = {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+            }
+        fetch('http://localhost:3000/champs', reqObj)
         .then(res => res.json())
         .then(res => {
             if(res.error) {
@@ -33,9 +39,11 @@ class Wishlist extends Component {
         const { wishes } = this.props
         
     return (
-    <div class="ui six cards">
+
+    <div className="ui four cards">
         {wishes.map(wish => (
-            <div className="ui raised card">
+            <div className="ui raised card" >
+            {/* style="overflow-y:auto;white-space:nowrap;" */}
               
                     <h4 className="ui center aligned">{wish.name === 'default' ? "Champion" : wish.name}</h4>
                 

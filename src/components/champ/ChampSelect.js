@@ -7,13 +7,24 @@ import { getChampsFailAction } from '../../store/actions/wishActions'
 class ChampSelect extends Component {
 
     componentDidMount() {
-        fetch('http://localhost:3000/champs')
+        const reqObj = {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+            }
+        // console.log('=========================', reqObj)
+
+        fetch('http://localhost:3000/champs', reqObj)
         .then(res => res.json())
         .then(res => {
+            // console.log(res)
+           
+            // debugger
             if(res.error) {
                 throw(res.error)
             }
-            console.log(res)
+            
             this.props.getChampsSuccess(res)
         })
         .catch((err) => {
