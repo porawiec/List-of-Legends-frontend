@@ -13,7 +13,7 @@ class Dashboard extends Component {
             <div className="ui divided two column">
                 <div className="row">
 
-                    <div className="ui two column grid">
+                    <div className="ui three column grid">
                         
                         <div className="column">
                             <div className="ui segment">
@@ -22,21 +22,21 @@ class Dashboard extends Component {
                             </div>
                         </div>
 
-                        <div className="four wide column">
+                        <div className="column">
                             <div className="ui segment">
                                 Friend Notifications
                                 <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" className="ui image" />
                             </div>
                         </div>
-
-                    </div>
-
-                    <div className="four wide column">
+                    <div className="column">
                         <div className="ui segment">
                             Friends List
                             <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" className="ui image" />
                         </div>
                     </div>
+
+                    </div>
+
 
                 </div>
 

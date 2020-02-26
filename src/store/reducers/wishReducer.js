@@ -22,70 +22,72 @@ const initState = {
         //     icon_img: 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/champion/Draven.png'
         // }
     ],
-    skins: [{
-        id: 1,
-        name: 'default',
-        splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg',
-        loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg',
-        champ_id: 1
-    },
-    {
-        id: 2,
-        name: 'Justicar Aatrox',
-        splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_1.jpg',
-        loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_1.jpg',
-        champ_id: 1
-    },
-    {
-        id: 3,
-        name: 'Mecha Aatrox',
-        splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_2.jpg',
-        loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_2.jpg',
-        champ_id: 1
-    },
-    {
-        id: 4,
-        name: 'Sea Hunter Aatrox',
-        splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_3.jpg',
-        loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_3.jpg',
-        champ_id: 1
-    }],
+    skins: [
+    //     {
+    //     id: 1,
+    //     name: 'default',
+    //     splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg',
+    //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg',
+    //     champ_id: 1
+    // },
+    // {
+    //     id: 2,
+    //     name: 'Justicar Aatrox',
+    //     splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_1.jpg',
+    //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_1.jpg',
+    //     champ_id: 1
+    // },
+    // {
+    //     id: 3,
+    //     name: 'Mecha Aatrox',
+    //     splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_2.jpg',
+    //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_2.jpg',
+    //     champ_id: 1
+    // },
+    // {
+    //     id: 4,
+    //     name: 'Sea Hunter Aatrox',
+    //     splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_3.jpg',
+    //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_3.jpg',
+    //     champ_id: 1
+    // }
+],
     wishes: [
-        {
-            id: 1170,
-            name: 'default',
-            splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_0.jpg',
-            loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zyra_0.jpg',
-            champ_id: 148
-        },
-        {
-            id: 1171,
-            name: 'Wildfire Zyra',
-            splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_1.jpg',
-            loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zyra_1.jpg',
-            champ_id: 148
-        },
-        {
-            id: 1172,
-            name: 'Haunted Zyra',
-            splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_2.jpg',
-            loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zyra_2.jpg',
-            champ_id: 148
-        },
-        {
-            id: 1173,
-            name: 'SKT T1 Zyra',
-            splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_3.jpg',
-            loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zyra_3.jpg',
-            champ_id: 148
-        },
-        {
-            id: 2,
-            name: 'Justicar Aatrox',
-            splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_1.jpg',
-            loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_1.jpg',
-            champ_id: 1
-        }
+        // {
+        //     id: 1170,
+        //     name: 'default',
+        //     splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_0.jpg',
+        //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zyra_0.jpg',
+        //     champ_id: 148
+        // },
+        // {
+        //     id: 1171,
+        //     name: 'Wildfire Zyra',
+        //     splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_1.jpg',
+        //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zyra_1.jpg',
+        //     champ_id: 148
+        // },
+        // {
+        //     id: 1172,
+        //     name: 'Haunted Zyra',
+        //     splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_2.jpg',
+        //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zyra_2.jpg',
+        //     champ_id: 148
+        // },
+        // {
+        //     id: 1173,
+        //     name: 'SKT T1 Zyra',
+        //     splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zyra_3.jpg',
+        //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zyra_3.jpg',
+        //     champ_id: 148
+        // },
+        // {
+        //     id: 2,
+        //     name: 'Justicar Aatrox',
+        //     splash_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_1.jpg',
+        //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_1.jpg',
+        //     champ_id: 1
+        // }
     ]
 }
 
@@ -101,7 +103,7 @@ const wishReducer = (state = initState, action) => {
 
         case 'GET_CHAMPS_ERROR':
             console.log('received champs error', action.err)
-            return state
+            return {...state}
 
         case 'GET_CHAMP_SKINS':
             console.log('received skins', action.skins)
@@ -112,7 +114,7 @@ const wishReducer = (state = initState, action) => {
 
         case 'GET_CHAMP_SKINS_ERROR':
             console.log('received skins error', action.err)
-            return state
+            return {...state}
 
         case 'GET_USERS':
             console.log('received users', action.champs)
@@ -139,20 +141,12 @@ const wishReducer = (state = initState, action) => {
                 }
             ])
 
-        case 'CREATE_WISH_ERROR':
-            console.log('create wish error', action.err)
-            return state
-
-        case "REMOVE_WISH":
+        case "DELETE_WISH":
             idx = state.wishes.findIndex(wish => wish.id === action.id);
             return {
                 ...state,
                 wishes: [...state.wishes.slice(0, idx), ...state.wishes.slice(idx + 1)]
             }
-
-        case 'REMOVE_WISH_ERROR':
-            console.log('remove wish error', action.err)
-            return state
 
         default:
             return state

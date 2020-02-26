@@ -32,7 +32,7 @@ class SignIn extends Component {
             .then(res => res.json())
             .then(cred => {
                 // console.log('fetch', cred)
-                debugger
+                // debugger
                 if(cred.error) {
                     throw(cred.error)
                 }

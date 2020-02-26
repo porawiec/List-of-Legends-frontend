@@ -14,14 +14,14 @@ class Wishlist extends Component {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
             }
-        fetch('http://localhost:3000/champs', reqObj)
+        fetch('http://localhost:3000/profile', reqObj)
         .then(res => res.json())
         .then(res => {
             if(res.error) {
                 throw(res.error)
             }
-            console.log(res)
-            this.props.getWishesSuccess(res)
+            // console.log('fetch wishlist', res.user)
+            this.props.getWishesSuccess(res.user.skins)
         })
         .catch((err) => {
             this.props.getWishesFailure(err)
@@ -29,23 +29,33 @@ class Wishlist extends Component {
     }
 
     clickedChamp = (target) => {
-        console.log('handle click champ', target)
-        console.log('handle click champ id', target.champ_id)
+        // console.log('handle click champ', target)
+        // console.log('handle click champ id', target.champ_id)
         this.props.history.push(`/champ/${target.champ_id}`)
     }
+    
     
     render(){
         console.log('wishlist props', this.props)
         const { wishes } = this.props
+
+        const divStyle={
+            overflowY: 'scroll',
+            // border:'1px solid red',
+            // width:'500px',
+            // float: 'left',
+            height:'500px',
+            position:'relative'
+          };
         
     return (
 
-    <div className="ui four cards">
+    <div style= {divStyle} className="ui four cards">
         {wishes.map(wish => (
             <div className="ui raised card" >
-            {/* style="overflow-y:auto;white-space:nowrap;" */}
               
                     <h4 className="ui center aligned">{wish.name === 'default' ? "Champion" : wish.name}</h4>
+                    {/* //get the name of champion from champion id */}
                 
                     <img onClick={() => this.clickedChamp(wish)} src={wish.loading_img} className="ui small image" />
                
@@ -57,13 +67,13 @@ class Wishlist extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('wishlist map ownProps to props', ownProps)
+    console.log('wishlist map state to props', state)
     // let id = ownProps.match.params.champ_id
     
     return {
         // champ: state.wish.champs.find((champ) => champ.id === id),
         // skins: state.wish.skins,
-        wishes: state.wish.wishes
+        wishes: state.wish.skins
     }
 }
 
