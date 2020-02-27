@@ -35,7 +35,7 @@ class ChampDetails extends Component {
     toggleWishStatus = (target) => {
         console.log(target)
         console.log('props', this.props)
-        this.props.postNewWish(target)
+        // this.props.postNewWish(target)
 
         // const reqObj = {
         //     method: 'POST',

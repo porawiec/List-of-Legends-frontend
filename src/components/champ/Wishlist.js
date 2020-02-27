@@ -44,7 +44,7 @@ class Wishlist extends Component {
             // border:'1px solid red',
             // width:'500px',
             // float: 'left',
-            height:'500px',
+            height:'450px',
             position:'relative'
           };
         

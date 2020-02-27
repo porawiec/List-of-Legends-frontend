@@ -28,12 +28,13 @@ class Dashboard extends Component {
                                 <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" className="ui image" />
                             </div>
                         </div>
-                    <div className="column">
-                        <div className="ui segment">
-                            Friends List
-                            <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" className="ui image" />
+
+                        <div className="column">
+                            <div className="ui segment">
+                                Friends List
+                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" className="ui image" />
+                            </div>
                         </div>
-                    </div>
 
                     </div>
 
