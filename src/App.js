@@ -60,7 +60,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  console.log('dash map dispatch to props', dispatch)
+  // console.log('dash map dispatch to props', dispatch)
   return {
       getProfile: (user) => {
           dispatch(getProfileAction(user))

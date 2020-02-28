@@ -31,7 +31,7 @@ class SignIn extends Component {
         fetch('http://localhost:3000/login', reqObj)
             .then(res => res.json())
             .then(userObj => {
-                console.log('fetch', userObj)
+                // console.log('fetch', userObj)
                 // debugger
                 if(userObj.error) {
                     throw(userObj.error)
@@ -56,7 +56,7 @@ class SignIn extends Component {
             <div className="ui middle aligned center aligned grid">
                 <div className="column">
                     <form onSubmit={this.handleSubmit} className='ui large form'>
-                    <div class="ui stacked segment">
+                    <div className="ui stacked segment">
                         <h2 className="ui teal image header">
                             <div className="content">
                                 Login to your account

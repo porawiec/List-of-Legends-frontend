@@ -24,14 +24,14 @@ class Dashboard extends Component {
                         <div className="column">
                             <div className="ui segment">
                                 Friend Notifications
-                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" className="ui image" />
+                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" alt="alt text" className="ui image" />
                             </div>
                         </div>
 
                         <div className="column">
                             <div className="ui segment">
                                 Friends List
-                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" className="ui image" />
+                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" alt="alt text" className="ui image" />
                             </div>
                         </div>
 

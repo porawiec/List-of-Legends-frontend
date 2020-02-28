@@ -1,42 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getChampsAction } from '../../store/actions/userActions'
-import { getChampsFailAction } from '../../store/actions/userActions'
-import { postNewWishAction } from '../../store/actions/authActions'
-import { deleteWishAction } from '../../store/actions/authActions'
+import { postNewWishAction } from '../../store/actions/userActions'
+import { deleteWishAction } from '../../store/actions/userActions'
 
 
 
 class ChampDetails extends Component {
-
-    componentDidMount() {
-        this.fetchSkins()
-    }
-
-fetchSkins = () => {
-    const reqObj = {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-        }
-   
-    fetch(`http://localhost:3000/champs`, reqObj)
-    .then(res => res.json())
-    .then(res => {
-        if(res.error) {
-            throw(res.error)
-        }
-        console.log(res)
-        this.props.getChampsSuccess(res)
-    })
-    .catch((err) => {
-        this.props.getChampsFailure(err)
-    })
-}
     
     addWish = (skin) => {
         console.log(skin)
@@ -73,7 +43,7 @@ fetchSkins = () => {
         console.log(skin)
         console.log('props', this.props)
 
-        const idx = this.props.skins.findIndex(wish => wish.id === skin.id);
+        const champId = this.props.wishes.find(wish => wish.id === skin.id).id;
 
 
         const wishInfo = {
@@ -90,7 +60,7 @@ fetchSkins = () => {
             body: JSON.stringify(wishInfo)
         }
     
-        fetch(`http://localhost:3000/wishes/${idx}`, reqObj)
+        fetch(`http://localhost:3000/wishes/${champId}`, reqObj)
             .then(res => res.json())
             .then(wish => {
             if (!wish.error) {
@@ -104,16 +74,16 @@ fetchSkins = () => {
 
    button = (skin) => {
 
-     const hasSkin = this.props.skins.find(ownSkin => ownSkin.id === skin.id)
+     const hasSkin = this.props.wishes.find(wishedSkin => wishedSkin.id === skin.id)
      if (hasSkin) {
-         return <button class="ui button fluid red" 
+         return <button className="ui button fluid red" 
          onClick={() => this.removeWish(skin)}
          >
              <i className="minus circle icon"></i>
              Remove from Wishlist!
          </button>
      } else {
-         return <button class="ui button fluid teal" onClick={() => this.addWish(skin)}>
+         return <button className="ui button fluid teal" onClick={() => this.addWish(skin)}>
          <i className="add icon"></i>
          Add to Wishlist!
      </button>
@@ -140,7 +110,7 @@ fetchSkins = () => {
                         <h2 className="ui center aligned">{skin.name === 'default' ? selectedChamp.name : skin.name}</h2>
                     </div>
                     <div className ="row">
-                        <img src={skin.splash_img} className="ui huge image" />
+                        <img src={skin.splash_img} alt={skin.name} className="ui huge image" />
                         {console.log('----------->', skin.name)}
                         { this.button(skin) }
                     </div>
@@ -152,23 +122,18 @@ fetchSkins = () => {
     }}
 
 const mapStateToProps = (state) => {
-    console.log('show page map state to props', state)
+    // console.log('show page map state to props', state)
     return {
         currentUser: state.auth.currentUser,
         champs: state.user.champs,
-        skins: state.auth.currentUser.skins
+        wishes: state.user.wishes
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.log('show page map dispatch to props', dispatch)
+    // console.log('show page map dispatch to props', dispatch)
     return {
-        getChampsSuccess: (champs) => {
-            dispatch(getChampsAction(champs))
-        },
-        getChampsFailure: (error) => {
-            dispatch(getChampsFailAction(error))
-        },
+
         postNewWish: (wish) => {
             dispatch(postNewWishAction(wish))
         },

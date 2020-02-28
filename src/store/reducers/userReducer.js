@@ -92,43 +92,66 @@ const initState = {
 }
 
 const userReducer = (state = initState, action) => {
-    let idx
+    // let idx
     switch (action.type) {
         case 'GET_CHAMPS':
-            console.log('received champs', action.champs.skins)
+            // console.log('received champs', action.champs.skins)
             return {
                 ...state,
                 champs: action.champs,
                 skins: action.champs.map(champ => ({id: champ.id, champ: champ.skins}))
             }
-
+        case 'GET_PROFILE':
+        case 'LOGIN_SUCCESS':
+                console.log('login success', action.user)
+                return {
+                    ...state,
+                    wishes: action.user.skins
+                }
         case 'GET_CHAMPS_ERROR':
-            console.log('received champs error', action.err)
+            // console.log('received champs error', action.err)
             return {...state}
 
         case 'GET_CHAMP_SKINS':
-            console.log('received skins', action.skins)
+            // console.log('received skins', action.skins)
             return {
                 ...state,
                 skins: action.skins
             }
 
         case 'GET_CHAMP_SKINS_ERROR':
-            console.log('received skins error', action.err)
+            // console.log('received skins error', action.err)
             return {...state}
 
         case 'GET_USER_WISHED_SKINS':
-            console.log('received user wishes', action.user)
+            // console.log('received user wishes', action.user)
             return {
                 ...state,
                 wishes: action.user.skins
             }
 
-
         case 'GET_USERS_ERROR':
-            console.log('received users error', action.err)
+            // console.log('received users error', action.err)
             return state
 
+        case 'CREATE_WISH':
+            // console.log('added wish', action.wish)
+            return {
+                ...state,
+                wishes: [
+                    ...state.wishes,
+                    action.wish
+                ]
+            }
+            
+        case "DELETE_WISH":
+            // console.log(state.skins)
+            const idx = state.skins.findIndex(skin => skin.id === action.id);
+            return {
+                ...state,
+                // skins: [...state.skins.filter(wish => wish.id !== action.wish)]
+                skins: [...state.skins.slice(0, idx), ...state.skins.slice(idx + 1)]
+            }
 
         default:
             return state

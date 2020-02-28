@@ -25,3 +25,16 @@ export const getChampsAction = (champs) => {
         error
     }
  }
+ 
+ export const postNewWishAction = (wish) => {
+    return {
+        type: 'CREATE_WISH',
+        wish
+    }
+ }
+ export const deleteWishAction = (wish) => {
+    return {
+        type: 'DELETE_WISH',
+        wish
+    }
+ }

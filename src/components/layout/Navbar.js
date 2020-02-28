@@ -25,7 +25,7 @@ class Navbar extends Component {
             <nav>
                 <div className="ui inverted menu">
                 <Link to='/'>
-                    <div className="item"><img src='https://b.thumbs.redditmedia.com/MDQjKWvNW82SfYXHbA9eFY1O-AFyT-4tpqWOWl3Xo-s.png' />
+                    <div className="item"><img alt="List of Legends logo" src='https://b.thumbs.redditmedia.com/MDQjKWvNW82SfYXHbA9eFY1O-AFyT-4tpqWOWl3Xo-s.png' />
                         List of Legends
                     </div>
                 </Link>

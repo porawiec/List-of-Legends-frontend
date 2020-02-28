@@ -24,7 +24,6 @@ class ChampSelect extends Component {
         fetch('http://localhost:3000/champs', reqObj)
         .then(res => res.json())
         .then(res => {
-            console.log('re',res)
            
             // debugger
             if(res.error) {
@@ -76,7 +75,7 @@ class ChampSelect extends Component {
                         <div className="column">
                             <div className="ui animated fade button">
                             {/* <div className="visible content"> */}
-                                <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} className="ui visible content fluid card" />
+                                <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} alt={champ.name} className="ui visible content fluid card" />
                             {/* </div> */}
                                 <div onClick={() => this.clickedChamp(champ)} className="hidden content">{champ.name}</div>
                             </div>
@@ -87,7 +86,7 @@ class ChampSelect extends Component {
                         <div className="column">
                             <div className="ui animated fade button">
                             {/* <div className="visible content"> */}
-                                <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} className="ui visible content fluid card" />
+                                <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} alt={champ.name} className="ui visible content fluid card" />
                             {/* </div> */}
                                 <div onClick={() => this.clickedChamp(champ)} className="hidden content">{champ.name}</div>
                             </div>
