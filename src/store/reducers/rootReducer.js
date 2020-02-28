@@ -1,11 +1,11 @@
 import authReducer from './authReducer'
-import wishReducer from './wishReducer'
+import userReducer from './userReducer'
 import { combineReducers } from 'redux'
 
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    wish: wishReducer
+    user: userReducer
 })
 
 export default rootReducer

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getChampsAction } from '../../store/actions/wishActions'
-import { getChampsFailAction } from '../../store/actions/wishActions'
+import { getChampsAction } from '../../store/actions/userActions'
+import { getChampsFailAction } from '../../store/actions/userActions'
 
 class ChampSelect extends Component {
     state = {
@@ -14,7 +14,9 @@ class ChampSelect extends Component {
         const reqObj = {
             method: 'GET',
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             }
             }
         // console.log('------->', reqObj)
@@ -22,17 +24,19 @@ class ChampSelect extends Component {
         fetch('http://localhost:3000/champs', reqObj)
         .then(res => res.json())
         .then(res => {
-            // console.log(res)
+            console.log('re',res)
            
             // debugger
             if(res.error) {
+                console.log('hi')
                 throw(res.error)
             }
             
-            this.props.getChampsSuccess(res)
+         return  this.props.getChampsSuccess(res)
         })
-        .catch((err) => {
-            this.props.getChampsFailure(err)
+        .catch((error) => {
+            console.log('herer', error)
+            this.props.getChampsFailure(error)
         })
     }
 
@@ -51,14 +55,13 @@ class ChampSelect extends Component {
       }
     
       updatedChampions = () => {
-        return this.props.champs.filter(hero => 
-          {return hero.name.toLowerCase().includes(this.state.searchBar.toLowerCase())}
+        return this.props.champs.filter(champ => 
+          {return champ.name.toLowerCase().includes(this.state.searchBar.toLowerCase())}
         )
       }
 
     
     render(){
-        // debugger
         // console.log('champ select props', this.props)
         const { champs } = this.props
         return(
@@ -71,22 +74,22 @@ class ChampSelect extends Component {
                     {this.state.searchBar === '' ?
                         champs.map(champ => (
                         <div className="column">
-                            <div class="ui animated fade button" tabindex="0">
+                            <div className="ui animated fade button">
                             {/* <div className="visible content"> */}
                                 <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} className="ui visible content fluid card" />
                             {/* </div> */}
-                                <div onClick={() => this.clickedChamp(champ)} class="hidden content">{champ.name}</div>
+                                <div onClick={() => this.clickedChamp(champ)} className="hidden content">{champ.name}</div>
                             </div>
                         </div>
                     ))
                     :
                         this.updatedChampions().map(champ => (
                         <div className="column">
-                            <div class="ui animated fade button" tabindex="0">
+                            <div className="ui animated fade button">
                             {/* <div className="visible content"> */}
                                 <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} className="ui visible content fluid card" />
                             {/* </div> */}
-                                <div onClick={() => this.clickedChamp(champ)} class="hidden content">{champ.name}</div>
+                                <div onClick={() => this.clickedChamp(champ)} className="hidden content">{champ.name}</div>
                             </div>
                         </div>
                     ))}
@@ -105,7 +108,7 @@ class ChampSelect extends Component {
     const mapStateToProps = (state) => {
         // console.log('champ select map state to props', state)
         return {
-            champs: state.wish.champs
+            champs: state.user.champs
         }
     }
 

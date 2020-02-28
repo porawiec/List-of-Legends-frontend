@@ -7,6 +7,7 @@ import ChampDetails from './components/champ/ChampDetails'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import { getProfileAction } from './store/actions/authActions'
+
 // import Friend from './components/notes/Friend'
 
 
@@ -25,14 +26,15 @@ class App extends Component {
 
   fetch('http://localhost:3000/profile', reqObj)
       .then(res => res.json())
-      .then(cred => {
-          if(cred.error) {
-              throw(cred.error)
+      .then(userObj => {
+          if(userObj.error) {
+              throw(userObj.error)
           }
-      if (!cred.error) {
-          this.props.getProfile(cred.user)
+      if (!userObj.error) {
+          this.props.getProfile(userObj.user)
+
       } else {
-          alert(cred.error)
+          alert(userObj.error)
           localStorage.removeItem('token')
       }
       }
@@ -60,9 +62,10 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
   console.log('dash map dispatch to props', dispatch)
   return {
-      getProfile: (cred) => {
-          dispatch(getProfileAction(cred))
+      getProfile: (user) => {
+          dispatch(getProfileAction(user))
       }
+
   }
 }
 

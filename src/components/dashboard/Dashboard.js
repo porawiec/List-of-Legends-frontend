@@ -6,7 +6,6 @@ import Wishlist from '../champ/Wishlist'
 class Dashboard extends Component {
 
     render(){
-        console.log('dash props',this.props)
 
         return(
         <div>

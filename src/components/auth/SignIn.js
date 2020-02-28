@@ -30,18 +30,19 @@ class SignIn extends Component {
     
         fetch('http://localhost:3000/login', reqObj)
             .then(res => res.json())
-            .then(cred => {
-                // console.log('fetch', cred)
+            .then(userObj => {
+                console.log('fetch', userObj)
                 // debugger
-                if(cred.error) {
-                    throw(cred.error)
+                if(userObj.error) {
+                    throw(userObj.error)
                 }
-            if (!cred.error) {
-                localStorage.setItem("token", cred.jwt)
-                this.props.signIn(cred)
+            if (!userObj.error) {
+                localStorage.setItem("token", userObj.jwt)
+                this.props.signIn(userObj)
                 this.props.history.push('/')
+                console.log('login userobj ----------->', userObj)
             } else {
-                alert(cred.error)
+                alert(userObj.error)
                 this.props.history.push('/login')
             }
             }
@@ -92,7 +93,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signIn: (creds) => dispatch(signIn(creds))
+        signIn: (user) => dispatch(signIn(user)),
     }
 }
 

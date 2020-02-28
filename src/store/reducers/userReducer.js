@@ -91,14 +91,15 @@ const initState = {
     ]
 }
 
-const wishReducer = (state = initState, action) => {
+const userReducer = (state = initState, action) => {
     let idx
     switch (action.type) {
         case 'GET_CHAMPS':
-            console.log('received champs', action.champs)
+            console.log('received champs', action.champs.skins)
             return {
                 ...state,
-                champs: action.champs
+                champs: action.champs,
+                skins: action.champs.map(champ => ({id: champ.id, champ: champ.skins}))
             }
 
         case 'GET_CHAMPS_ERROR':
@@ -116,37 +117,18 @@ const wishReducer = (state = initState, action) => {
             console.log('received skins error', action.err)
             return {...state}
 
-        case 'GET_USERS':
-            console.log('received users', action.champs)
+        case 'GET_USER_WISHED_SKINS':
+            console.log('received user wishes', action.user)
             return {
                 ...state,
-                champs: action.champs
+                wishes: action.user.skins
             }
+
 
         case 'GET_USERS_ERROR':
             console.log('received users error', action.err)
             return state
 
-
-        case 'CREATE_WISH':
-            console.log('added wish', action.wish)
-            return ([
-                ...state,
-                {
-                    id: action.id,
-                    name: action.name,
-                    splash_img: action.splash_img,
-                    loading_img: action.loading_img,
-                    champ_id: action.champ_id
-                }
-            ])
-
-        case "DELETE_WISH":
-            idx = state.wishes.findIndex(wish => wish.id === action.id);
-            return {
-                ...state,
-                wishes: [...state.wishes.slice(0, idx), ...state.wishes.slice(idx + 1)]
-            }
 
         default:
             return state
@@ -155,4 +137,4 @@ const wishReducer = (state = initState, action) => {
 
 
 
-export default wishReducer
+export default userReducer

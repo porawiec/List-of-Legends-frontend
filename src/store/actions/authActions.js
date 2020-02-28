@@ -1,7 +1,7 @@
-export const signIn = (credentials) => {
+export const signIn = (user) => {
    return {
        type: 'LOGIN_SUCCESS',
-       credentials
+       user
    }
 }
 
@@ -11,16 +11,29 @@ export const signOut = () => {
     }
 }
 
-export const signUp = (credentials) => {
+export const signUp = (user) => {
     return {
         type: 'SIGN_UP_SUCCESS',
-        credentials
+        user
     }
  }
 
- export const getProfileAction = (credentials) => {
+ export const getProfileAction = (user) => {
     return {
         type: 'GET_PROFILE',
-        credentials
+        user
+    }
+    }
+
+ export const postNewWishAction = (wish) => {
+    return {
+        type: 'CREATE_WISH',
+        wish
+    }
+ }
+ export const deleteWishAction = (wish) => {
+    return {
+        type: 'DELETE_WISH',
+        wish
     }
  }

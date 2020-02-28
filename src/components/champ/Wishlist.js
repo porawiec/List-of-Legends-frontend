@@ -1,35 +1,39 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getWishesAction } from '../../store/actions/wishActions'
-import { getWishesFailAction } from '../../store/actions/wishActions'
+import { getWishesAction } from '../../store/actions/userActions'
+import { getWishesFailAction } from '../../store/actions/userActions'
 
 
 class Wishlist extends Component {
 
     componentDidMount() {
-        const reqObj = {
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-            }
-        fetch('http://localhost:3000/profile', reqObj)
-        .then(res => res.json())
-        .then(res => {
-            if(res.error) {
-                throw(res.error)
-            }
-            // console.log('fetch wishlist', res.user)
-            this.props.getWishesSuccess(res.user.skins)
-        })
-        .catch((err) => {
-            this.props.getWishesFailure(err)
-        })
-    }
+        // const reqObj = {
+        //     method: 'GET',
+        //     headers: {
+        //         Authorization: `Bearer ${localStorage.getItem('token')}`,
+        //         'Content-Type': 'application/json',
+        //         'Accept': 'application/json'
+        //     }
+        //     }
+        // fetch('http://localhost:3000/profile', reqObj)
+        // .then(res => res.json())
+        // .then(res => {
+        //     if(res.error) {
+        //         throw(res.error)
+        //     }
+        //     // console.log('fetch wishlist', res.user)
+        //     this.props.getWishesSuccess(res.user.skins)
+        // })
+        // .catch((err) => {
+        //     this.props.getWishesFailure(err)
+        // })
+    // console.log('wish component did mount props--------->', this.props)
+    // this.props.getWishes(this.props.currentUser)
+}
 
-    clickedChamp = (target) => {
-        // console.log('handle click champ', target)
+clickedChamp = (target) => {
+    // console.log('handle click champ', target)
         // console.log('handle click champ id', target.champ_id)
         this.props.history.push(`/champ/${target.champ_id}`)
     }
@@ -51,7 +55,7 @@ class Wishlist extends Component {
     return (
 
     <div style= {divStyle} className="ui four cards">
-        {wishes.map(wish => (
+        {!wishes ? null : wishes.map(wish => (
             <div className="ui raised card" >
               
                     <h4 className="ui center aligned">{wish.name === 'default' ? "Champion" : wish.name}</h4>
@@ -66,14 +70,13 @@ class Wishlist extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     console.log('wishlist map state to props', state)
     // let id = ownProps.match.params.champ_id
     
     return {
-        // champ: state.wish.champs.find((champ) => champ.id === id),
-        // skins: state.wish.skins,
-        wishes: state.wish.skins
+        currentUser: state.auth.currentUser,
+        wishes: state.user.wishes
     }
 }
 
@@ -85,7 +88,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         getWishesFailure: (error) => {
             dispatch(getWishesFailAction(error))
-        }
+        },
+        getWishes: (user) => dispatch(getWishesAction(user))
+
     }
 }
 
