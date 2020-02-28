@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { postNewWishAction } from '../../store/actions/userActions'
-import { deleteWishAction } from '../../store/actions/userActions'
-
+import { postNewWishAction, deleteWishAction } from '../../store/actions/userActions'
 
 
 class ChampDetails extends Component {
@@ -43,11 +41,9 @@ class ChampDetails extends Component {
         console.log(skin)
         console.log('props', this.props)
 
-        const champId = this.props.wishes.find(wish => wish.id === skin.id).id;
-
-
         const wishInfo = {
-            wish: skin
+            skin_id: skin.id,
+            user_id: this.props.currentUser.id
         }
 
         const reqObj = {
@@ -60,16 +56,10 @@ class ChampDetails extends Component {
             body: JSON.stringify(wishInfo)
         }
     
-        fetch(`http://localhost:3000/wishes/${champId}`, reqObj)
-            .then(res => res.json())
-            .then(wish => {
-            if (!wish.error) {
-                this.props.deleteWish(wish)
-            } else {
-                alert(wish.error)
-            }
-            }
-            )
+        fetch(`http://localhost:3000/destroyWithIds`, reqObj)
+            // .then(res => res.json())
+            this.props.deleteWish(skin)
+            
     }
 
    button = (skin) => {

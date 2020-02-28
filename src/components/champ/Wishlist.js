@@ -6,13 +6,34 @@ class Wishlist extends Component {
 
 clickedChamp = (target) => {
     // console.log('handle click champ', target)
-        // console.log('handle click champ id', target.champ_id)
+    // console.log('handle click champ id', target.champ_id)
         this.props.history.push(`/champ/${target.champ_id}`)
     }
-        
-    render(){
-        const { wishes } = this.props
+    
+    renderWishCard = () => {
+        const { wishes, champs } = this.props
+        return wishes.map(wish => {
+        const findChamp = champs.find(champ => champ.id === wish.champ_id)
 
+            if (!findChamp) {
+                return <div className="ui segment">
+                     <div className="ui active loader"></div>
+                     <br></br>
+                </div>
+                // null
+            }
+            
+            return <div className="ui raised card">
+                {/* {console.log(findChamp)} */}
+                    <h4 className="ui center aligned">{wish.name === 'default' ? findChamp.name : wish.name}</h4>                
+                    <img alt={wish.name} onClick={() => this.clickedChamp(wish)} src={wish.loading_img} className="ui small image" />
+                </div>
+        }
+    )}
+     
+    
+    render(){
+        
         const divStyle={
             overflowY: 'scroll',
             // border:'1px solid red',
@@ -20,33 +41,23 @@ clickedChamp = (target) => {
             // float: 'left',
             height:'450px',
             position:'relative'
-          };
+        };
         
-
-    return (
-        // this.checkUser()
-    <div style= {divStyle} className="ui four cards">
-        {!wishes ? null : wishes.map(wish => (
-            <div className="ui raised card" >
-              
-                    <h4 className="ui center aligned">{wish.name === 'default' ? "Champion" : wish.name}</h4>
-                    {/* //get the name of champion from champion id */}
-                
-                    <img alt={wish.name} onClick={() => this.clickedChamp(wish)} src={wish.loading_img} className="ui small image" />
-               
+        
+        return (
+            <div style= {divStyle} className="ui four cards">
+                {this.renderWishCard()}   
             </div>
-        ))}
-    </div>
     )
     }
 }
 
 const mapStateToProps = (state) => {
     // console.log('wishlist map state to props', state)
-    // let id = ownProps.match.params.champ_id
     
     return {
         currentUser: state.auth.currentUser,
+        champs: state.user.champs,
         wishes: state.user.wishes
     }
 }

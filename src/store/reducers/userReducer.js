@@ -145,12 +145,10 @@ const userReducer = (state = initState, action) => {
             }
             
         case "DELETE_WISH":
-            // console.log(state.skins)
-            const idx = state.skins.findIndex(skin => skin.id === action.id);
+            console.log(state)
             return {
                 ...state,
-                // skins: [...state.skins.filter(wish => wish.id !== action.wish)]
-                skins: [...state.skins.slice(0, idx), ...state.skins.slice(idx + 1)]
+                wishes: state.wishes.filter(wish => wish.id !== action.wish.id)
             }
 
         default:
