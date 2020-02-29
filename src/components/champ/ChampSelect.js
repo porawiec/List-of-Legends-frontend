@@ -27,7 +27,6 @@ class ChampSelect extends Component {
            
             // debugger
             if(res.error) {
-                console.log('hi')
                 throw(res.error)
             }
             

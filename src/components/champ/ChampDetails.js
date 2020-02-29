@@ -1,14 +1,40 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { postNewWishAction, deleteWishAction } from '../../store/actions/userActions'
+import { getChampsAction, getChampsFailAction, postNewWishAction, deleteWishAction } from '../../store/actions/userActions'
 
 
 class ChampDetails extends Component {
+
+    componentDidMount() {
+
+        const reqObj = {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+            }
+        // console.log('------->', reqObj)
+
+        fetch('http://localhost:3000/champs', reqObj)
+        .then(res => res.json())
+        .then(res => {
+           
+            // debugger
+            if(res.error) {
+                throw(res.error)
+            }
+            
+         return  this.props.getChampsSuccess(res)
+        })
+        .catch((error) => {
+            this.props.getChampsFailure(error)
+        })
+    }
     
     addWish = (skin) => {
-        console.log(skin)
-        console.log('props', this.props)
         
         const wishInfo = {
             skin_id: skin.id,
@@ -123,7 +149,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     // console.log('show page map dispatch to props', dispatch)
     return {
-
+        getChampsSuccess: (champs) => {
+            dispatch(getChampsAction(champs))
+        },
+        getChampsFailure: (error) => {
+            dispatch(getChampsFailAction(error))
+        },
         postNewWish: (wish) => {
             dispatch(postNewWishAction(wish))
         },
