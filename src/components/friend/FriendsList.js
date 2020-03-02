@@ -50,10 +50,10 @@ class FriendsList extends Component {
             height:'450px',
             position:'relative'
         };
-        
+
           return(
 
-            <div>
+            <div style={divStyle}>
                 <h2>Friends</h2>
                     <ul>
                         {/* map over current current_user.friends and display in list */}
@@ -77,7 +77,7 @@ class FriendsList extends Component {
     const mapStateToProps = (state) => {
         // console.log('friends list map state to props', state)
         return {
-            friends: state.user.friends
+            currentUser: state.auth.currentUser
         }
     }
 

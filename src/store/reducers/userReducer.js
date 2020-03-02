@@ -89,7 +89,7 @@ const initState = {
         //     champ_id: 1
         // }
     ],
-    Friends: [
+    friends: [
 
     ]
 }
@@ -104,6 +104,11 @@ const userReducer = (state = initState, action) => {
                 skins: action.champs.map(champ => ({id: champ.id, champ: champ.skins}))
             }
         case 'GET_PROFILE':
+            console.log('FOO ', action.user)
+                return {
+                    ...state,
+                    wishes: action.user.skins
+                }
         case 'LOGIN_SUCCESS':
                 console.log('login success', action.user)
                 return {

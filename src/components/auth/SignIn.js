@@ -37,8 +37,10 @@ class SignIn extends Component {
                     throw(userObj.error)
                 }
             if (!userObj.error) {
+                console.log('asdfaskfjaslkfdjaslkfj', userObj)
                 localStorage.setItem("token", userObj.jwt)
-                this.props.signIn(userObj)
+                // {user: {}, jwt: 'asfasdf'}
+                this.props.signIn(userObj.user)
                 this.props.history.push('/')
                 console.log('login userobj ----------->', userObj)
             } else {

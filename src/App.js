@@ -28,9 +28,12 @@ class App extends Component {
       .then(res => res.json())
       .then(userObj => {
           if(userObj.error) {
+            console.log('asfdasf', userObj)
               throw(userObj.error)
           }
       if (!userObj.error) {
+        // {user: {}, jwt: 'asfd'}
+        console.log(userObj)
           this.props.getProfile(userObj.user)
 
       } else {
@@ -39,6 +42,9 @@ class App extends Component {
       }
       }
       )
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   render(){
