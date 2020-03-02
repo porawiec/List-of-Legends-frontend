@@ -45,7 +45,7 @@ clickedChamp = (target) => {
         
         
         return (
-            <div style= {divStyle} className="ui four cards">
+            <div style= {divStyle} className="ui three cards">
                 {this.renderWishCard()}   
             </div>
     )

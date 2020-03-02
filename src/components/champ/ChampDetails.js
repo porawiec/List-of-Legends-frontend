@@ -118,7 +118,7 @@ class ChampDetails extends Component {
 
         
     return (
-    <div className="ui three column grid">
+    <div className="ui four column grid">
         {!selectedChamp ? null : selectedChamp.skins.map(skin => (
             <div className= "ui column">
                 <div className="ui centered card">
@@ -126,7 +126,7 @@ class ChampDetails extends Component {
                         <h2 className="ui center aligned">{skin.name === 'default' ? selectedChamp.name : skin.name}</h2>
                     </div>
                     <div className ="row">
-                        <img src={skin.splash_img} alt={skin.name} className="ui huge image" />
+                        <img src={skin.splash_img} alt={skin.name} className="ui fluid image" />
                         {console.log('----------->', skin.name)}
                         { this.button(skin) }
                     </div>

@@ -17,6 +17,7 @@ class Dashboard extends Component {
                         <div className="column">
                             <div className="ui segment">
                                 Personal Wishlist
+                                <div class="ui hidden divider"></div>
                                 <Wishlist />
                             </div>
                         </div>

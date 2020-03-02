@@ -59,26 +59,40 @@ class ChampSelect extends Component {
       }
 
     
-    render(){
-        // console.log('champ select props', this.props)
-        const { champs } = this.props
-        return(
-            <div>
+      render(){
+
+        const divStyle={
+            overflowY: 'scroll',
+            // border:'1px solid red',
+            // width:'500px',
+            // float: 'left',
+            height:'450px',
+            position:'relative'
+        };
+
+          // console.log('champ select props', this.props)
+          const { champs } = this.props
+          return(
+
+              <div>
                 <div className="ui huge fluid icon input">
                     <input type="text" id="searchBar" placeholder={"Champion search"} onChange={this.handleChange}/>
                     <i className="circular search link icon"></i>
                 </div>
-                <div className="ui eight grid">
+                <div class="ui hidden divider"></div>
+
+                <div className="ui twelve cards" style={divStyle}>
+                
                     {this.state.searchBar === '' ?
                         champs.map(champ => (
                         <div className="column">
-                            <div className="ui animated fade button">
+                            <div className="ui animated inverted fade button">
                             {/* <div className="visible content"> */}
-                                <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} alt={champ.name} className="ui visible content fluid card" />
+                                <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} alt={champ.name} className="ui visible content" />
                             {/* </div> */}
                                 <div onClick={() => this.clickedChamp(champ)} className="hidden content">{champ.name}</div>
                             </div>
-                        </div>
+                </div>
                     ))
                     :
                         this.updatedChampions().map(champ => (

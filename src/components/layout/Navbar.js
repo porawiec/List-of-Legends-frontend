@@ -30,11 +30,13 @@ class Navbar extends Component {
                     </div>
                 </Link>
                     <div className="right menu">
-                        <NavLink to='/login' className='item'>Sign In</NavLink>
-                        <NavLink to='/signup' className='item'>Create New Account</NavLink>
-                        {/* {this.props.currentUser.user.username ?  */}
-                        <NavLink to='/login' className='item' onClick={() => this.handleClick()}>Log Out</NavLink> 
-                        {/* : null} */}
+                        {localStorage.token
+                        ?   <NavLink to='/login' className='item' onClick={() => this.handleClick()}>Log Out</NavLink>
+                        :   <React.Fragment>
+                            <NavLink to='/login' className='item'>Sign In</NavLink>
+                            <NavLink to='/signup' className='item'>Create New Account</NavLink>
+                            </React.Fragment>
+                        }
                     </div>
                 </div>
             </nav>
