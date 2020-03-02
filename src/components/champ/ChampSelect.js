@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getChampsAction } from '../../store/actions/userActions'
-import { getChampsFailAction } from '../../store/actions/userActions'
+import { getChampsAction, getChampsFailAction } from '../../store/actions/userActions'
 
 class ChampSelect extends Component {
     state = {
-        searchBar: ''
+        champSearchBar: ''
     }
 
     componentDidMount() {
@@ -45,16 +44,16 @@ class ChampSelect extends Component {
     }
 
     handleChange = (e) => {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         this.setState({
             [e.target.id]: e.target.value
         })
-        console.log(this.state)
+        // console.log(this.state)
       }
     
       updatedChampions = () => {
         return this.props.champs.filter(champ => 
-          {return champ.name.toLowerCase().includes(this.state.searchBar.toLowerCase())}
+          {return champ.name.toLowerCase().includes(this.state.champSearchBar.toLowerCase())}
         )
       }
 
@@ -76,14 +75,14 @@ class ChampSelect extends Component {
 
               <div>
                 <div className="ui huge fluid icon input">
-                    <input type="text" id="searchBar" placeholder={"Champion search"} onChange={this.handleChange}/>
+                    <input type="text" id="champSearchBar" placeholder={"Champion search"} onChange={this.handleChange}/>
                     <i className="circular search link icon"></i>
                 </div>
                 <div class="ui hidden divider"></div>
 
                 <div className="ui twelve cards" style={divStyle}>
                 
-                    {this.state.searchBar === '' ?
+                    {this.state.champSearchBar === '' ?
                         champs.map(champ => (
                         <div className="column">
                             <div className="ui animated inverted fade button">
@@ -97,9 +96,9 @@ class ChampSelect extends Component {
                     :
                         this.updatedChampions().map(champ => (
                         <div className="column">
-                            <div className="ui animated fade button">
+                            <div className="ui animated inverted fade button">
                             {/* <div className="visible content"> */}
-                                <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} alt={champ.name} className="ui visible content fluid card" />
+                                <img onClick={() => this.clickedChamp(champ)} src={champ.icon_img} alt={champ.name} className="ui visible content" />
                             {/* </div> */}
                                 <div onClick={() => this.clickedChamp(champ)} className="hidden content">{champ.name}</div>
                             </div>

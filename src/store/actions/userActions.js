@@ -32,6 +32,7 @@ export const getChampsAction = (champs) => {
         wish
     }
  }
+
  export const deleteWishAction = (wish) => {
     // console.log('wish', wish)
     return {
@@ -44,5 +45,19 @@ export const getChampsAction = (champs) => {
     return {
         type: 'GET_FRIENDS',
         user
+    }
+ }
+
+ export const postNewFriendAction = (friendship) => {
+    return {
+        type: 'CREATE_FRIENDSHIP',
+        friendship
+    }
+ }
+
+ export const deleteFriendAction = (friendship) => {
+    return {
+        type: 'DELETE_FRIENDSHIP',
+        friendship
     }
  }

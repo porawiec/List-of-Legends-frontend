@@ -138,7 +138,7 @@ const userReducer = (state = initState, action) => {
             }
 
         case 'GET_FRIENDS':
-            // console.log('received users error', action.err)
+            // console.log('received friends', action.user)
             return {
                 ...state,
                 friends: action.user.friends
@@ -160,6 +160,17 @@ const userReducer = (state = initState, action) => {
                 ...state,
                 wishes: state.wishes.filter(wish => wish.id !== action.wish.id)
             }
+
+        case 'CREATE_FRIENDSHIP':
+            console.log('added friend', action.friendship)
+            return {
+                ...state,
+                friends: [
+                    ...state.friends,
+                    action.friendship
+                ]
+            }
+    
 
         default:
             return state
