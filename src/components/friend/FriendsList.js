@@ -6,6 +6,12 @@ class FriendsList extends Component {
 
     
     clickedFriend = (friend) => {
+        // console.log('handle click friend', friend)
+        // console.log('handle click friend id', friend.id)
+        this.props.history.push(`/user/${friend.id}`)
+    }
+
+    addFriend = (friend) => {
         // console.log('handle click champ', friend)
         // console.log('handle click friend id', friend.id)
         this.props.history.push(`/user/${friend.id}`)
@@ -22,25 +28,40 @@ class FriendsList extends Component {
             height:'450px',
             position:'relative'
         };
-
+        const { friends } = this.props
           return(
 
             <div style={divStyle}>
+                <div className="ui fluid icon input">
+                    <input type="text" id="searchBar" placeholder={"Add friend..."}/>
+                    <i onClick={this.addFriend} className="circular add link icon"></i>
+                </div>
+                {/* <div class="ui hidden divider"></div> */}
+
                 <h2>Friends</h2>
                     <ul>
                         {/* map over current current_user.friends and display in list */}
-                        {console.log(this.props.friends)}
-                        <li> Friend Name 1</li>
-                        <li> Friend Name 2 </li>
-                        <li> Friend Name 3</li>
+                        {/* {console.log(this.props)} */}
+                        {friends ? friends.map (friend =>
+                            <li onClick={() => this.clickedFriend(friend)}> {friend.username} </li>
+                        )
+                        :   <div className="ui segment">
+                                <div className="ui active loader"></div>
+                            </div>
+                        }
                     </ul>
 
                 <h2>Friended by Users</h2>
                     <ul>
                         {/* map over current current_user.inverse_friends and display in list */}
-                        <li>Friendee 1</li>
-                        <li>Friendee 2</li>
-                        <li>Friendee 3</li>
+                        {/* {console.log(this.props)} */}
+                        {friends ? friends.map (friend =>
+                            <li onClick={() => this.clickedFriend(friend)}> {friend.username} </li>
+                            )
+                        :   <div className="ui segment">
+                                <div className="ui active loader"></div>
+                            </div>
+                        }
                     </ul>
             </div>
         )}
