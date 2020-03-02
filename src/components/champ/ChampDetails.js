@@ -113,8 +113,6 @@ class ChampDetails extends Component {
         console.log('params', this.props.match.params)
         // console.log('champ props', champs)
         const selectedChamp = champs.find(champ => champ.id === parseInt(id))
-        // console.log('champ id', !selectedChamp ? null : selectedChamp.skins)
-
 
         
     return (

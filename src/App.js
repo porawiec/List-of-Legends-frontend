@@ -51,7 +51,7 @@ class App extends Component {
             <Route path='/champ/:id' component={ChampDetails} />
             <Route path='/login' component={SignIn} />
             <Route path='/signup' component={SignUp} />
-            {/* <Route path='/user/:id' component={Friend} /> */}
+            {/* <Route path='/user/:id' component={FriendShow} /> */}
           </Switch>
         </div>
       </BrowserRouter>

@@ -88,11 +88,13 @@ const initState = {
         //     loading_img: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_1.jpg',
         //     champ_id: 1
         // }
+    ],
+    Friends: [
+
     ]
 }
 
 const userReducer = (state = initState, action) => {
-    // let idx
     switch (action.type) {
         case 'GET_CHAMPS':
             // console.log('received champs', action.champs.skins)

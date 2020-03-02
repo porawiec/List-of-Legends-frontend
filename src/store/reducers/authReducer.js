@@ -1,7 +1,6 @@
 const initState = {
     authError: null,
     currentUser: {}
-    // skins: []
 }
 
 const authReducer = (state = initState, action) => {

@@ -18,7 +18,6 @@ clickedChamp = (target) => {
             if (!findChamp) {
                 return <div className="ui segment">
                      <div className="ui active loader"></div>
-                     <br></br>
                 </div>
                 // null
             }

@@ -39,3 +39,10 @@ export const getChampsAction = (champs) => {
         wish
     }
  }
+
+ export const getUsersAction = (users) => {
+    return {
+        type: 'GET_USERS',
+        users
+    }
+ }

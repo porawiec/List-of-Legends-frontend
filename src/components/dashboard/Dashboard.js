@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import Notifications from './Notifications'
 import ChampSelect from '../champ/ChampSelect'
 import Wishlist from '../champ/Wishlist'
+import FriendsList from '../friend/FriendsList'
 
 class Dashboard extends Component {
 
@@ -32,7 +33,8 @@ class Dashboard extends Component {
                         <div className="column">
                             <div className="ui segment">
                                 Friends List
-                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" alt="alt text" className="ui image" />
+                                <FriendsList />
+                                {/* <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" alt="alt text" className="ui image" /> */}
                             </div>
                         </div>
 
