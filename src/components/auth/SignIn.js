@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
+import { getFriendsAction } from '../../store/actions/userActions'
 
 class SignIn extends Component {
     state = {
@@ -37,12 +38,11 @@ class SignIn extends Component {
                     throw(userObj.error)
                 }
             if (!userObj.error) {
-                console.log('asdfaskfjaslkfdjaslkfj', userObj)
+                // console.log('login userobj ----------->', userObj)
                 localStorage.setItem("token", userObj.jwt)
-                // {user: {}, jwt: 'asfasdf'}
                 this.props.signIn(userObj.user)
+                this.props.getFriends(userObj.user)
                 this.props.history.push('/')
-                console.log('login userobj ----------->', userObj)
             } else {
                 alert(userObj.error)
                 this.props.history.push('/login')
@@ -95,7 +95,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signIn: (user) => dispatch(signIn(user)),
+        signIn: (user) => {
+            dispatch(signIn(user))
+        },
+        getFriends: (user) => {
+            dispatch(getFriendsAction(user))
+        }
     }
 }
 

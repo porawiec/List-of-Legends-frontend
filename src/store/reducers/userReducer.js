@@ -104,13 +104,13 @@ const userReducer = (state = initState, action) => {
                 skins: action.champs.map(champ => ({id: champ.id, champ: champ.skins}))
             }
         case 'GET_PROFILE':
-            console.log('FOO ', action.user)
+            // console.log('get profile', action.user)
                 return {
                     ...state,
                     wishes: action.user.skins
                 }
         case 'LOGIN_SUCCESS':
-                console.log('login success', action.user)
+                // console.log('login success', action.user)
                 return {
                     ...state,
                     wishes: action.user.skins
@@ -137,9 +137,12 @@ const userReducer = (state = initState, action) => {
                 wishes: action.user.skins
             }
 
-        case 'GET_USERS_ERROR':
+        case 'GET_FRIENDS':
             // console.log('received users error', action.err)
-            return state
+            return {
+                ...state,
+                friends: action.user.friends
+            }
 
         case 'CREATE_WISH':
             // console.log('added wish', action.wish)

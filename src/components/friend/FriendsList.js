@@ -4,35 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 class FriendsList extends Component {
 
-    componentDidMount() {
-
-        const reqObj = {
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-            }
-        // console.log('------->', reqObj)
-
-        fetch('http://localhost:3000/users', reqObj)
-        .then(res => res.json())
-        .then(res => {
-           
-            // debugger
-            if(res.error) {
-                throw(res.error)
-            }
-            
-        //  return  this.props.getUsersSuccess(res)
-        })
-        .catch((error) => {
-            // console.log('get users error', error)
-            // this.props.getUsersFailure(error)
-        })
-    }
-
+    
     clickedFriend = (friend) => {
         // console.log('handle click champ', friend)
         // console.log('handle click friend id', friend.id)
@@ -57,6 +29,7 @@ class FriendsList extends Component {
                 <h2>Friends</h2>
                     <ul>
                         {/* map over current current_user.friends and display in list */}
+                        {console.log(this.props.friends)}
                         <li> Friend Name 1</li>
                         <li> Friend Name 2 </li>
                         <li> Friend Name 3</li>
@@ -77,7 +50,7 @@ class FriendsList extends Component {
     const mapStateToProps = (state) => {
         // console.log('friends list map state to props', state)
         return {
-            currentUser: state.auth.currentUser
+            friends: state.user.friends
         }
     }
 

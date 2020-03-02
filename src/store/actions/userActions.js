@@ -40,9 +40,9 @@ export const getChampsAction = (champs) => {
     }
  }
 
- export const getUsersAction = (users) => {
+ export const getFriendsAction = (user) => {
     return {
-        type: 'GET_USERS',
-        users
+        type: 'GET_FRIENDS',
+        user
     }
  }

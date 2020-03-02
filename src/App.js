@@ -7,6 +7,7 @@ import ChampDetails from './components/champ/ChampDetails'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import { getProfileAction } from './store/actions/authActions'
+import { getFriendsAction } from './store/actions/userActions'
 
 // import Friend from './components/notes/Friend'
 
@@ -32,9 +33,9 @@ class App extends Component {
               throw(userObj.error)
           }
       if (!userObj.error) {
-        // {user: {}, jwt: 'asfd'}
         console.log(userObj)
           this.props.getProfile(userObj.user)
+          this.props.getFriends(userObj.user)
 
       } else {
           alert(userObj.error)
@@ -69,9 +70,12 @@ const mapDispatchToProps = (dispatch) => {
   // console.log('dash map dispatch to props', dispatch)
   return {
       getProfile: (user) => {
-          dispatch(getProfileAction(user))
-      }
+        dispatch(getProfileAction(user))
+      },
 
+      getFriends: (user) => {
+        dispatch(getFriendsAction(user))
+    }
   }
 }
 
