@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Navbar from './components/layout/Navbar'
 import Dashboard from './components/dashboard/Dashboard'
 import ChampDetails from './components/champ/ChampDetails'
+import FriendShow from './components/friend/FriendShow'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import { getProfileAction } from './store/actions/authActions'
@@ -58,7 +59,7 @@ class App extends Component {
             <Route path='/champ/:id' component={ChampDetails} />
             <Route path='/login' component={SignIn} />
             <Route path='/signup' component={SignUp} />
-            {/* <Route path='/user/:id' component={FriendShow} /> */}
+            <Route path='/user/:id' component={FriendShow} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -155,10 +155,17 @@ const userReducer = (state = initState, action) => {
             }
             
         case "DELETE_WISH":
-            console.log(state)
+            // console.log(state)
             return {
                 ...state,
                 wishes: state.wishes.filter(wish => wish.id !== action.wish.id)
+            }
+
+        case "GET_USER":
+            // console.log(state)
+            return {
+                ...state,
+                friend: action.friend
             }
 
         case 'CREATE_FRIENDSHIP':

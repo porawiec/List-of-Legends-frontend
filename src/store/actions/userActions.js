@@ -40,6 +40,13 @@ export const getChampsAction = (champs) => {
         wish
     }
  }
+ export const getUserAction = (friend) => {
+    // console.log('wish', wish)
+    return {
+        type: 'GET_USER',
+        friend
+    }
+ }
 
  export const getFriendsAction = (user) => {
     return {
