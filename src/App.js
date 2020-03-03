@@ -34,7 +34,7 @@ class App extends Component {
               throw(userObj.error)
           }
       if (!userObj.error) {
-        console.log(userObj)
+        // console.log(userObj)
           this.props.getProfile(userObj.user)
           this.props.getFriends(userObj.user)
 

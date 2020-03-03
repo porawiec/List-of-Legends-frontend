@@ -57,7 +57,7 @@ class FriendShow extends Component {
     }
     
     renderWishCard = () => {
-        const { wishes, champs, friend } = this.props
+        const { champs, friend } = this.props
         return !friend ? null : friend.skins.map(wish => {
         const findChamp = champs.find(champ => champ.id === wish.champ_id)
 

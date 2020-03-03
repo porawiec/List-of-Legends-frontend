@@ -42,7 +42,7 @@ class FriendsList extends Component {
             
         }
     
-        fetch('http://localhost:3000/friendships', reqObj)
+        fetch('http://localhost:3000/createFriendWithName', reqObj)
             .then(res => res.json())
             .then(friendshipObj => {
             if (!friendshipObj.error) {
@@ -111,7 +111,7 @@ class FriendsList extends Component {
                             {/* {console.log(this.props)} */}
                             {friends ? friends.map (friend =>
                             <tr>
-                                <td className={"selectable"} onClick={() => this.clickedFriend(friend)}> <a href=""> {friend.username} </a> </td>
+                                <td className={"selectable fifteen wide"} onClick={() => this.clickedFriend(friend)}> <a href=""> {friend.username} </a> </td>
                                 <td className="selectable right aligned">
                                     <a href="">Delete</a>
                                 </td>
@@ -125,17 +125,24 @@ class FriendsList extends Component {
                     </table>
 
                 <h2>Friended by Users</h2>
-                    <ul>
-                        {/* map over current current_user.inverse_friends and display in list */}
-                        {/* {console.log(this.props)} */}
-                        {friends ? friends.map (friend =>
-                            <li onClick={() => this.clickedFriend(friend)}> {friend.username} </li>
+                    <table class="ui celled table">
+                        <tbody>
+                            {/* map over current current_user.friends and display in list */}
+                            {/* {console.log(this.props)} */}
+                            {friends ? friends.map (friend =>
+                            <tr>
+                                <td className={"selectable fifteen wide"} onClick={() => this.clickedFriend(friend)}> <a href=""> {friend.username} </a> </td>
+                                <td className="selectable right aligned">
+                                    <a href="">Delete</a>
+                                </td>
+                            </tr>
                             )
-                        :   <div className="ui segment">
-                                <div className="ui active loader"></div>
-                            </div>
-                        }
-                    </ul>
+                            :   <div className="ui segment">
+                                    <div className="ui active loader"></div>
+                                </div>
+                            }
+                        </tbody>
+                    </table>
             </div>
         )}
     }
