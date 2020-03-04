@@ -55,16 +55,16 @@ export const getChampsAction = (champs) => {
     }
  }
 
- export const postNewFriendAction = (friendship) => {
+ export const postNewFriendAction = (friend) => {
     return {
         type: 'CREATE_FRIENDSHIP',
-        friendship
+        friend
     }
  }
 
- export const deleteFriendAction = (friendship) => {
+ export const deleteFriendAction = (friend) => {
     return {
         type: 'DELETE_FRIENDSHIP',
-        friendship
+        friend
     }
  }

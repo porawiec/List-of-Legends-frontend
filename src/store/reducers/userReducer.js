@@ -169,13 +169,20 @@ const userReducer = (state = initState, action) => {
             }
 
         case 'CREATE_FRIENDSHIP':
-            console.log('added friend', action.friendship)
+            // console.log('added friend', action.friend)
             return {
                 ...state,
                 friends: [
                     ...state.friends,
-                    action.friendship
+                    action.friend
                 ]
+            }
+
+        case "DELETE_FRIENDSHIP":
+            // console.log(state)
+            return {
+                ...state,
+                friends: state.friends.filter(friend => friend.id !== action.friend.id)
             }
     
 

@@ -9,9 +9,14 @@ import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import { getProfileAction } from './store/actions/authActions'
 import { getFriendsAction } from './store/actions/userActions'
-
+// import Background from '../src/images/Shadow_Isles_concept_4.jpg';
 // import Friend from './components/notes/Friend'
 
+
+// const sectionStyle = {
+//   width: "100%",
+//   backgroundImage: `url(${Background})`
+// };
 
 class App extends Component {
   componentDidMount = () => {
@@ -48,6 +53,7 @@ class App extends Component {
         console.log(err)
       })
   }
+
 
   render(){
     return (

@@ -4,11 +4,11 @@ import { withRouter } from 'react-router-dom'
 
 class Wishlist extends Component {
 
-clickedChamp = (target) => {
-    // console.log('handle click champ', target)
-    // console.log('handle click champ id', target.champ_id)
-        this.props.history.push(`/champ/${target.champ_id}`)
-    }
+    clickedChamp = (target) => {
+        // console.log('handle click champ', target)
+        // console.log('handle click champ id', target.champ_id)
+            this.props.history.push(`/champ/${target.champ_id}`)
+        }
     
     renderWishCard = () => {
         const { wishes, champs } = this.props
@@ -22,11 +22,15 @@ clickedChamp = (target) => {
                 // null
             }
             
-            return <div className="ui raised card">
-                {/* {console.log(findChamp)} */}
-                    <h4 className="ui center aligned">{wish.name === 'default' ? findChamp.name : wish.name}</h4>                
-                    <img alt={wish.name} onClick={() => this.clickedChamp(wish)} src={wish.loading_img} className="ui small image" />
-                </div>
+            return  <div className="card">
+                        <div className='image'>
+                            <img alt={wish.name} onClick={() => this.clickedChamp(wish)} src={wish.loading_img} />
+                        </div>
+                        <div className='content'>
+                        {/* {console.log(findChamp)} */}
+                            <div className="header">{wish.name === 'default' ? findChamp.name : wish.name}</div>
+                        </div>
+                    </div>
         }
     )}
      
@@ -44,7 +48,7 @@ clickedChamp = (target) => {
         
         
         return (
-            <div style= {divStyle} className="ui three cards">
+            <div style= {divStyle} className="ui link three cards">
                 {this.renderWishCard()}   
             </div>
     )
