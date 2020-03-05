@@ -86,7 +86,9 @@ class FriendsList extends Component {
         return(
 
             <div>
-                <h2 class="ui header">Friends</h2>
+                <div className="ui raised text compact segment">
+                    <h2 className="ui header">Friends List</h2>
+                </div>
                 <div className="ui fluid icon input">
                     <input type="text" id="friendSearchBar" placeholder={"Add friend..."} onChange={this.handleChange}/>
                     <i onClick={this.addFriend} className="circular add link icon"></i>

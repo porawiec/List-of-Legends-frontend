@@ -37,12 +37,26 @@
   }
 }
 
-.background {
+/* .background { */
   /* border: 2px solid red; */
   /* background-color: rgb(43, 48, 49); */
-  background: url('https://i.imgur.com/S919SiU.png') no-repeat center center fixed !important; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  /* background: url('https://i.imgur.com/S919SiU.png') no-repeat center center fixed !important;  */
+  /* -webkit-background-size: cover; */
+  /* -moz-background-size: cover; */
+  /* -o-background-size: cover; */
+  /* background-size: cover; */
+/* } */
+
+html, body{
+  height: 100%;
+}
+body { 
+      /* border: 2px solid red; */
+			background-image: url('https://i.imgur.com/S919SiU.png') ;
+			background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+			background-size:  cover;
+			background-color: #999;
+  
 }

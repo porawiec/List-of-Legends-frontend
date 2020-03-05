@@ -88,11 +88,16 @@ class ChampSelect extends Component {
           const { champs } = this.props
           return(
 
-              <div style={styles.container}>
-                <div className="ui huge icon input">
-                    <input type="text" id="champSearchBar" placeholder={"Champion Search..."} onChange={this.handleChange}/>
-                    <i className="circular search link icon"></i>
+              <div style={styles}>
+         
+                    {/* <div className="ui raised extratext compact segment">
+                        <h2 className="ui header">Champion Roster</h2>
+                    </div> */}
+                    <div className="ui huge fluid icon input">
+                        <input type="text" id="champSearchBar" placeholder={"Champion Search..."} onChange={this.handleChange}/>
+                        <i className="circular search link icon"></i>
                 </div>
+
                 <div className="ui hidden divider"/>
 
                 <div style={styles.champions} className="ui twelve cards">

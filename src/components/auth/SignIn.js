@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
 import { getFriendsAction } from '../../store/actions/userActions'
-import Background from '../../images/Shadow_Isles_concept_4.jpg'
+// import Background from '../../images/Shadow_Isles_concept_4.jpg'
 
 class SignIn extends Component {
     state = {
@@ -55,32 +55,30 @@ class SignIn extends Component {
 
     render() {
 
-        const divStyle={
-            // overflowY: 'scroll',
-            // border:'1px solid red',
-            // width:'500px',
-            // float: 'none',
-            height:'100%',
-            position:'absolute',
-            width: "100%",
-            backgroundImage: `url(${Background})`
+        // const divStyle={
+        //     // overflowY: 'scroll',
+        //     // border:'1px solid red',
+        //     // width:'500px',
+        //     // float: 'none',
+        //     height:'100%',
+        //     position:'absolute',
+        //     width: "100%",
+        //     backgroundImage: `url(${Background})`
 
-        };
+        // };
 
         const { authError } = this.props
         return (
-            <div style={divStyle} className="ui middle aligned center aligned grid">
+            <div className="ui middle aligned center aligned grid">
                 
                 <div className="column">
                 <div class="ui hidden divider"></div>
 
                     <form onSubmit={this.handleSubmit} className='ui form'>
-                    <div className="ui container">
-                        <h2 className="ui teal image header">
-                            <div className="content">
-                                Login to your account
-                            </div>
-                        </h2>
+                    <div class="ui raised very padded text container segment">
+                        
+                        <h2 class="ui header">Login to your account</h2>
+
                         <div className='field'>
                             <label htmlFor='username'></label>
                             <input type='text' id='username' placeholder='Username' onChange={this.handleChange}></input>

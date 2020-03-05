@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Notifications from './Notifications'
+import FriendFeed from '../friend/FriendFeed'
 import ChampSelect from '../champ/ChampSelect'
 import Wishlist from '../champ/Wishlist'
 import FriendsList from '../friend/FriendsList'
@@ -29,7 +29,7 @@ class Dashboard extends Component {
         <div className="ui internally celled grid">
             <div className="row">
                 <div className="nine wide column">
-                    <button className="ui button" onClick={() => this.clickedWishlist(currentUser)}>Personal Wishlist</button>
+                    <button className="ui huge blue button" onClick={() => this.clickedWishlist(currentUser)}>Personal Wishlist</button>
                     
                     <div class="ui hidden divider"></div>
                     
@@ -37,9 +37,12 @@ class Dashboard extends Component {
                 </div>
 
                 <div className="three wide column">
-                    <h2 class="ui header">Friend Notifications</h2>
+                    <div className="ui raised text compact segment">
+                        <h2 className="ui header">Friend Feed</h2>
+                    </div>
                         <div className="ui segment">
-                            <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" alt="alt text" className="ui image" />
+                            <FriendFeed />
+                            {/* <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" alt="alt text" className="ui image" /> */}
                         </div>
                 </div>
 
@@ -50,7 +53,6 @@ class Dashboard extends Component {
 
             <div className="row">
                 <div className="sixteen wide centered column">
-                    <h2 class="ui header">Champion Roster</h2>
                     <ChampSelect />
                 </div>
             </div>
