@@ -77,13 +77,13 @@ class SignIn extends Component {
                     <form onSubmit={this.handleSubmit} className='ui form'>
                     <div class="ui raised very padded text container segment">
                         
-                        <h2 class="ui header">Login to your account</h2>
+                        <h2 class="ui teal header">Login to your account</h2>
 
                         <div className='field'>
                             <label htmlFor='username'></label>
                             <input type='text' id='username' placeholder='Username' onChange={this.handleChange}></input>
                         </div>
-                        <div className='input-field'>
+                        <div className='field'>
                             <label htmlFor='password'></label>
                             <input type='password' id='password' placeholder='Password' onChange={this.handleChange}></input>
                         </div>

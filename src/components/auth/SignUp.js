@@ -51,22 +51,29 @@ class SignUp extends Component {
         return (
             <div className="ui middle aligned center aligned grid">
                 <div className="column">
+                <div class="ui hidden divider"></div>
+
                     <form onSubmit={this.handleSubmit} className='ui large form'>
-                    <div class="ui stacked segment">
-                        <h2 className="ui teal image header">
+                    <div class="ui raised very padded text container segment">
+                        
+                        <h2 class="ui teal header">
                                 <div className="content">
                                     Create new account
                                 </div>
                             </h2>
-                            <div className='input-field'>
+
+                            <div className='field'>
                                 <label htmlFor='username'></label>
                                 <input type='text' id='username' placeholder='Username' onChange={this.handleChange}></input>
                             </div>
-                            <h5 className=''>Password</h5>
-                            <div className='input-field'>
+
+                            <div className='field'>
                                 <label htmlFor='password'></label>
                                 <input type='password' id='password' placeholder='Password' onChange={this.handleChange}></input>
                             </div>
+
+                            <div class="ui hidden divider"></div>
+
                             <div className='input-field'>
                                 <button className='ui large teal submit button'>Sign Up</button>
                             </div>
