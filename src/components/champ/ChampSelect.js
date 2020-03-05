@@ -68,7 +68,7 @@ class ChampSelect extends Component {
             // border:'1px solid red',
             // width:'500px',
             // float: 'none',
-            height:'430px',
+            height:'501px',
             margin: 'auto',
             // padding: 'auto',
             // position:'absolute',
@@ -88,7 +88,7 @@ class ChampSelect extends Component {
           const { champs } = this.props
           return(
 
-              <div style={styles}>
+              <div style={styles.container}>
          
                     {/* <div className="ui raised extratext compact segment">
                         <h2 className="ui header">Champion Roster</h2>

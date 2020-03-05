@@ -86,8 +86,11 @@ class FriendShow extends Component {
     render(){
         console.log(this.props.friend)
         return (
-            <div className="ui six cards">
-                {this.renderWishCard()}   
+            <div className="ui container">
+                    <div class="ui hidden divider"></div>
+                <div className="ui five cards">
+                    {this.renderWishCard()}
+                </div>   
             </div>
     )
     }

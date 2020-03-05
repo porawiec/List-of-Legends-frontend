@@ -8,14 +8,14 @@ class FriendFeed extends Component {
             <div className="event">
                 <div className="content">
                 <div className="summary">
-                    <a>Llui</a> added <a>Mecha Aatrox</a> to their wishlist.
+                    <a>LluiLluiLlui</a> added <a>Mecha Aatrox</a> to their wishlist.
                 </div>
                 </div>
             </div>
             <div className="event">
                 <div className="content">
                 <div className="summary">
-                    <a>LordSawe</a> added <a>Apocalyptic Brand</a> to their wishlist.
+                    <a>LordBoneSawe</a> added <a>Apocalyptic Brand</a> to their wishlist.
                 </div>
                 </div>
             </div>
