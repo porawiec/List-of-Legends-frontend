@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route} from 'react-router-dom'
+import { BrowserRouter, Redirect, Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import Navbar from './components/layout/Navbar'
 import Dashboard from './components/dashboard/Dashboard'
@@ -39,6 +39,7 @@ class App extends Component {
       .then(userObj => {
           if(userObj.error) {
             console.log('asfdasf', userObj)
+            
               throw(userObj.error)
           }
       if (!userObj.error) {
@@ -57,24 +58,38 @@ class App extends Component {
       })
   }
 
-
   render(){
+    const { currentUser } = this.props
     return (
       <BrowserRouter>
         <div style ={divStyle} className="background">
           <Navbar />
           <Switch>
-            <Route exact path='/' component={Dashboard} />
-            <Route path='/champ/:id' component={ChampDetails} />
-            <Route path='/login' component={SignIn} />
-            <Route path='/signup' component={SignUp} />
-            <Route path='/user/:id' component={FriendShow} />
+            {/* <Route exact path='/' component={Dashboard} /> */}
+            <Route exact path='/' render={() => {
+              return currentUser.id ? < Dashboard /> : <Redirect to='/login' component={SignIn} />
+            }} />
+              {/* <Route exact path='/champ/:id' component={ChampDetails} /> */}
+            <Route exact path='/champ/:id' render={() => {
+              return currentUser.id ? < ChampDetails /> : <Redirect to='/login' component={SignIn} />
+            }} />
+            <Route exact path='/login' component={SignIn} />
+            <Route exact path='/signup' component={SignUp} />
+            {/* <Route exact path='/user/:id' component={FriendShow} /> */}
+            <Route exact path='/user/:id' render={() => {
+              return currentUser.id ? < FriendShow /> : <Redirect to='/login' component={SignIn} />
+            }} />
+
           </Switch>
         </div>
       </BrowserRouter>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  currentUser: state.auth.currentUser
+});
 
 const mapDispatchToProps = (dispatch) => {
   // console.log('dash map dispatch to props', dispatch)
@@ -89,4 +104,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
