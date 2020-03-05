@@ -81,39 +81,29 @@ class FriendsList extends Component {
 
       render(){
         
-        const divStyle={
-            overflowY: 'scroll',
-            // border:'1px solid red',
-            // width:'500px',
-            // float: 'left',
-            height:'450px',
-            position:'relative',
-            backgroundColor: 'blue'
-        }
-        
         const { friends } = this.props
         console.log(this.props)
         return(
 
-            <div style={divStyle}>
+            <div>
+                <h2 class="ui header">Friends</h2>
                 <div className="ui fluid icon input">
                     <input type="text" id="friendSearchBar" placeholder={"Add friend..."} onChange={this.handleChange}/>
                     <i onClick={this.addFriend} className="circular add link icon"></i>
                 </div>
                 {/* <div class="ui hidden divider"></div> */}
 
-                <h2>Friends</h2>
                     <table class="ui celled table">
                         <tbody>
                             {/* map over current current_user.friends and display in list */}
                             {/* {console.log(this.props)} */}
                             {friends ? friends.map (friend =>
                             <tr>
-                                <td className={"selectable fifteen wide"} onClick={() => this.clickedFriend(friend)}>
+                                <td className="selectable fifteen wide" onClick={() => this.clickedFriend(friend)}>
                                     <a> {friend.username} </a>
                                 </td>
-                                <td className="selectable right aligned">
-                                    <a onClick={() => this.removeFriend(friend)}> Delete </a>
+                                <td className="selectable" onClick={() => this.removeFriend(friend)}>
+                                    <a> Delete </a>
                                 </td>
                             </tr>
                             )

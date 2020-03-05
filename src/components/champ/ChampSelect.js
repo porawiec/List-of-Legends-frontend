@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getChampsAction, getChampsFailAction } from '../../store/actions/userActions'
-import Background from '../../../src/images/dragon.jpeg';
+// import Background from '../../../src/images/dragon.jpeg';
 
 
 class ChampSelect extends Component {
@@ -62,32 +62,40 @@ class ChampSelect extends Component {
     
       render(){
 
-        const divStyle={
+        const styles={container:{
             overflowY: 'scroll',
+            overflowX: 'hidden',
             // border:'1px solid red',
             // width:'500px',
             // float: 'none',
             height:'430px',
+            margin: 'auto',
+            // padding: 'auto',
             // position:'absolute',
             width: "100%",
-            backgroundSize: "100%",
-            backgroundImage: `url(${Background})`
+            // backgroundSize: "100%",
+            // backgroundImage: `url(${Background})`
 
-        };
+        },
+        champions: {
+            display: 'flex',
+            justifyContent: 'center'
+        }
+    
+    };
 
           // console.log('champ select props', this.props)
           const { champs } = this.props
           return(
 
-              <div style={divStyle}>
-                  <h3> Champion Roster </h3>
+              <div style={styles.container}>
                 <div className="ui huge icon input">
                     <input type="text" id="champSearchBar" placeholder={"Champion Search..."} onChange={this.handleChange}/>
                     <i className="circular search link icon"></i>
                 </div>
-                <div class="ui hidden divider"></div>
+                <div className="ui hidden divider"/>
 
-                <div className="ui twelve cards">
+                <div style={styles.champions} className="ui twelve cards">
                 
                     {this.state.champSearchBar === '' ?
                         champs.map(champ => (

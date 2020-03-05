@@ -58,17 +58,23 @@ class FriendShow extends Component {
     
     renderWishCard = () => {
         const { champs, friend } = this.props
-        return !friend ? null : friend.skins.map(wish => {
+        return !friend ? 
+
+        <div className="ui inverted segment">
+            <div className="ui active inverted loader"></div>
+        </div>
+        
+        : friend.skins.map(wish => {
         const findChamp = champs.find(champ => champ.id === wish.champ_id)
 
             if (!findChamp) {
-                return <div className="ui segment">
-                     <div className="ui active loader"></div>
+                return <div className="ui inverted segment">
+                     <div className="ui active inverted loader"></div>
                 </div>
                 // null
             }
             
-            return <div className="ui raised card">
+            return <div className="ui centered card">
                 {/* {console.log(findChamp)} */}
                     <h4 className="ui center aligned">{wish.name === 'default' ? findChamp.name : wish.name}</h4>                
                     <img alt={wish.name} onClick={() => this.clickedChamp(wish)} src={wish.loading_img} className="ui image" />

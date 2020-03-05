@@ -28,29 +28,32 @@ class Dashboard extends Component {
         return(
         <div className="ui internally celled grid">
             <div className="row">
-                        <div className="five wide column">
-                                <button className="ui button" onClick={() => this.clickedWishlist(currentUser)}>Personal Wishlist</button>
-                                <Wishlist />
-                        </div>
+                <div className="nine wide column">
+                    <button className="ui button" onClick={() => this.clickedWishlist(currentUser)}>Personal Wishlist</button>
+                    
+                    <div class="ui hidden divider"></div>
+                    
+                    <Wishlist />
+                </div>
 
-                        <div className="five wide column">
-                            <div className="ui segment">
-                                Friend Notifications
-                                <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" alt="alt text" className="ui image" />
-                            </div>
+                <div className="three wide column">
+                    <h2 class="ui header">Friend Notifications</h2>
+                        <div className="ui segment">
+                            <img src="https://react.semantic-ui.com/images/wireframe/paragraph.png" alt="alt text" className="ui image" />
                         </div>
+                </div>
 
-                        <div className="five wide column">
-                                <FriendsList />
-                        </div>
+                <div className="four wide column">
+                    <FriendsList />
+                </div>
             </div>
 
-                <div className="row">
-                    <div className="sixteen wide centered column">
-                            <ChampSelect />
-                    </div>
+            <div className="row">
+                <div className="sixteen wide centered column">
+                    <h2 class="ui header">Champion Roster</h2>
+                    <ChampSelect />
                 </div>
-            
+            </div>
         </div>
         )
     }

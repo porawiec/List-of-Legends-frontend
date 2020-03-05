@@ -10,13 +10,16 @@ import SignUp from './components/auth/SignUp'
 import { getProfileAction } from './store/actions/authActions'
 import { getFriendsAction } from './store/actions/userActions'
 // import Background from '../src/images/Shadow_Isles_concept_4.jpg';
-// import Friend from './components/notes/Friend'
+// import Background from '../src/images/dragon.jpeg';
 
 
-// const sectionStyle = {
-//   width: "100%",
-//   backgroundImage: `url(${Background})`
-// };
+const divStyle={
+  // width: "100%",
+  // height: "100%",
+  // backgroundSize: "100%",
+  // backgroundImage: `url(${Background})`
+
+};
 
 class App extends Component {
   componentDidMount = () => {
@@ -58,7 +61,7 @@ class App extends Component {
   render(){
     return (
       <BrowserRouter>
-        <div className="App">
+        <div style ={divStyle} className="background">
           <Navbar />
           <Switch>
             <Route exact path='/' component={Dashboard} />

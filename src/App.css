@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.background {
+  /* border: 2px solid red; */
+  /* background-color: rgb(43, 48, 49); */
+  background: url('https://i.imgur.com/S919SiU.png') no-repeat center center fixed !important; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
