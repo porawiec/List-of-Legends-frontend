@@ -38,7 +38,7 @@ class App extends Component {
       .then(res => res.json())
       .then(userObj => {
           if(userObj.error) {
-            console.log('asfdasf', userObj)
+            console.log('profile fetch', userObj)
             
               throw(userObj.error)
           }
@@ -65,17 +65,14 @@ class App extends Component {
         <div style ={divStyle} className="background">
           <Navbar />
           <Switch>
-            {/* <Route exact path='/' component={Dashboard} /> */}
             <Route exact path='/' render={() => {
               return currentUser.id ? < Dashboard /> : <Redirect to='/login' component={SignIn} />
             }} />
-              {/* <Route exact path='/champ/:id' component={ChampDetails} /> */}
             <Route exact path='/champ/:id' render={() => {
               return currentUser.id ? < ChampDetails /> : <Redirect to='/login' component={SignIn} />
             }} />
             <Route exact path='/login' component={SignIn} />
             <Route exact path='/signup' component={SignUp} />
-            {/* <Route exact path='/user/:id' component={FriendShow} /> */}
             <Route exact path='/user/:id' render={() => {
               return currentUser.id ? < FriendShow /> : <Redirect to='/login' component={SignIn} />
             }} />
